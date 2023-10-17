@@ -1,0 +1,28 @@
+﻿<Window x:Class="MultiplayerScherm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MultiplayerScherm"
+        mc:Ignorable="d"
+        Title="Multiplayer" Height="720" Width="1280">
+    <Grid Background="Black">
+        <Label Content="2 Spelers" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" FontSize="50px" FontFamily="Baloo Bhai 2" Foreground="White" FontWeight="Bold"/>
+        <Border BorderBrush="White" BorderThickness="1" Height="200" Width="200"  Margin="170,250,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Image HorizontalAlignment="Left" Height="200" Width="200"  VerticalAlignment="Top"/>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="1" Height="200" Width="200"  Margin="910,250,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Image HorizontalAlignment="Left" Height="200" Width="200"  VerticalAlignment="Top"/>
+        </Border>
+        <Button Content="Start" HorizontalAlignment="Center" Margin="0,550,0,0" VerticalAlignment="Top" FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
+                Foreground="White" Background="#00ff0f" Width="200px" Height="55px" BorderBrush="Black"/>
+        
+        <Button Content="▲" HorizontalAlignment="Left" Margin="235,130,0,0" VerticalAlignment="Top" FontSize="75px" Foreground="White" Background="Black" BorderBrush="Black"/>
+        <Button Content="▲" HorizontalAlignment="Left" Margin="975,130,0,0" VerticalAlignment="Top" FontSize="75px" Foreground="White" Background="Black" BorderBrush="Black"/>
+        <Button Content="▼" HorizontalAlignment="Left" Margin="235,455,0,0" VerticalAlignment="Top" FontSize="75px" Foreground="White" Background="Black" BorderBrush="Black"/>
+        <Button Content="▼" HorizontalAlignment="Left" Margin="975,455,0,0" VerticalAlignment="Top" FontSize="75px" Foreground="White" Background="Black" BorderBrush="Black"/>
+        <Button Content="╳" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontSize="30px" Foreground="#ff7200" Background="Black" BorderBrush="Black"/>
+
+
+    </Grid>
+</Window>
