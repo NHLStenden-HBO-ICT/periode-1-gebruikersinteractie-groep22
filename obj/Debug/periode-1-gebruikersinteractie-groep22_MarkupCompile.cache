@@ -9,12 +9,12 @@ periode_1_gebruikersinteractie_groep22
 none
 false
 DEBUG;TRACE
-E:\GITHUB\source\repos\periode-1-gebruikersinteractie-groep22\App.xaml
-513274910
+E:\GITHUB\source\repos\periode-1-gebruikersinteractie-groep22\src\App.xaml
+5-1735645380
 
-9-361250104
+9-896972940
 13-38814620
-GameWindow.xaml;MainWindow.xaml;MultiplayerWindow.xaml;TimerPage.xaml;UitlegPage.xaml;
+src\GameWindow.xaml;src\MainWindow.xaml;src\MultiplayerWindow.xaml;src\TimerPage.xaml;src\UitlegPage.xaml;
 
 False
 
