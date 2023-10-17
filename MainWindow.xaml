@@ -1,4 +1,4 @@
-﻿<Window x:Class="MovingObstacles.MainWindow"
+<Window x:Class="MovingObstacles.MainWindow"
 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 
@@ -10,7 +10,7 @@
 
         <!-- Player -->
 
-        <Rectangle x:Name="player" Width="50" Height="50" Fill="Blue" Canvas.Left="640" Canvas.Top="585"/>
+		<Rectangle x:Name="player" Width="50" Height="50" Fill="Blue" Canvas.Left="640" Canvas.Top="585"/>
 
 
 
