@@ -66,7 +66,7 @@ namespace MovingObstacles
 
 
 
-            
+
 
             InitializeObstacles();
 
@@ -128,7 +128,7 @@ namespace MovingObstacles
 
                 // Set initial direction (true for right, false for left)
 
-                obstacleDirections.Add(i % 2 == 0); 
+                obstacleDirections.Add(i % 2 == 0);
 
             }
 
@@ -208,7 +208,7 @@ namespace MovingObstacles
 
 
 
-                
+
 
                 if (obstacleLeft > gameCanvas.ActualWidth - obstacles[i].Width || obstacleLeft < 0)
 
