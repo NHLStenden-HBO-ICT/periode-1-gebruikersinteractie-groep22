@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using System.Collections.Generic;
 
@@ -34,9 +34,10 @@ namespace MovingObstacles
 
         private DispatcherTimer timer;
 
-        private int obstacleSpeed = 12;
+        private int obstacleSpeed = 6;
 
         private int obstacleCount = 8; // Aantal obstakels
+        private int level = 1; 
 
 
 
@@ -67,7 +68,6 @@ namespace MovingObstacles
 
 
 
-
             InitializeObstacles();
 
 
@@ -90,10 +90,12 @@ namespace MovingObstacles
 
         {
 
+
             obstacles = new List<Rectangle>();
 
             obstacleDirections = new List<bool>();
 
+            int random = level * 387;
 
 
             for (int i = 0; i < obstacleCount; i++)
@@ -116,9 +118,9 @@ namespace MovingObstacles
 
                 // Set initial position
 
-                Canvas.SetLeft(obstacle, i * 150); // Spread obstacles horizontally
+                Canvas.SetLeft(obstacle, (1000 / obstacleCount) * i); // Spread obstacles horizontally
 
-                Canvas.SetTop(obstacle, 100 + i * 50); // Spread obstacles vertically
+                Canvas.SetTop(obstacle, (400 / (obstacleCount)) * i + 100); // Spread obstacles vertically
 
                 gameCanvas.Children.Add(obstacle);
 
@@ -128,7 +130,9 @@ namespace MovingObstacles
 
                 // Set initial direction (true for right, false for left)
 
-                obstacleDirections.Add(i % 2 == 0);
+                random = (random * 318211 + 1471343) % 167449;
+
+                obstacleDirections.Add(( random + i )% 2 == 0);
 
             }
 
@@ -212,7 +216,12 @@ namespace MovingObstacles
 
                 if (obstacleLeft > gameCanvas.ActualWidth - obstacles[i].Width || obstacleLeft < 0)
 
-                    obstacleDirections[i] = !obstacleDirections[i];
+                    if (obstacleDirections[i]) { 
+                        obstacleLeft = 0;
+                    } else
+                    {
+                        obstacleLeft = gameCanvas.ActualWidth - obstacles[i].Width;
+                    }
 
 
 
@@ -246,7 +255,11 @@ namespace MovingObstacles
 
                 timer.Stop();
 
-                MessageBox.Show("Gefeliciteerd!, je hebt de finish bereikt.");
+                level++;
+                obstacleSpeed++;
+
+                obstacleCount++;
+
 
                 ResetGame();
 
@@ -282,15 +295,33 @@ namespace MovingObstacles
 
         {
 
-            Canvas.SetLeft(player, 375);
 
-            Canvas.SetTop(player, 500);
 
-            playerLeft = 375;
+            playerLeft = 640;
 
-            playerTop = 500;
+            playerTop = 585;
 
             timer.Start();
+
+            // clear canvas but keep player object
+            List<UIElement> objectsToKeep = new List<UIElement>();
+            objectsToKeep.Add(player);
+            gameCanvas.Children.Clear();
+            foreach (UIElement obj in objectsToKeep)
+            {
+                gameCanvas.Children.Add(obj);
+            }
+
+
+            Canvas.SetLeft(player, 640);
+
+            Canvas.SetTop(player, 585);
+
+            InitializeObstacles();
+
+
+
+
 
         }
 
