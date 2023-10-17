@@ -5,10 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:periode_1_gebruikersinteractie_groep22"
       mc:Ignorable="d" 
-      d:DesignHeight="640" d:DesignWidth="640"
-      Title="UitlegPage" Width="640" Height="460">
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="UitlegPage.xaml" Height="720" Width="1280">
 
-    <Grid>
+    <Grid Background="Black">
 
     </Grid>
 
