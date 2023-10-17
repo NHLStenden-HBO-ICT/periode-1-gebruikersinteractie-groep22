@@ -13,8 +13,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 
 using System.Windows.Threading;
-
-
+using System.Xml.Schema;
 
 namespace MovingObstacles
 
@@ -31,12 +30,13 @@ namespace MovingObstacles
         private List<Rectangle> obstacles;
 
         private List<bool> obstacleDirections;
+        private List<double> obstacleSpeeds;
 
         private DispatcherTimer timer;
 
-        private int obstacleSpeed = 6;
+        private double obstacleSpeed = 5;
 
-        private int obstacleCount = 8; // Aantal obstakels
+        private int obstacleCount = 4; // Aantal obstakels
         private int level = 1; 
 
 
@@ -90,37 +90,56 @@ namespace MovingObstacles
 
         {
 
-
+            int back = 0;
             obstacles = new List<Rectangle>();
 
             obstacleDirections = new List<bool>();
+            obstacleSpeeds = new List<double>();
 
             int random = level * 387;
+            int r = 30;
 
 
             for (int i = 0; i < obstacleCount; i++)
 
             {
 
+
+                r = Math.Abs((random % 3)) * 30 + 30;
+                byte colorR = 0;
+                byte colorG = 0;
+                byte colorB = 0;
+
+                if (r == 30) {
+                    colorR = 255;
+                } else if (r == 60)
+                {
+                    colorR = 255;
+                    colorG = 255;
+                } else
+                {
+                    colorB = 255;
+                }
+                Color c = Color.FromRgb(colorR, colorG, colorB);
+
                 Rectangle obstacle = new Rectangle
 
                 {
 
-                    Width = 30,
-
+                    Width = r, // random width
                     Height = 30,
-
-                    Fill = Brushes.Red
+                    Fill = new SolidColorBrush(c)
 
                 };
 
+                
 
 
                 // Set initial position
 
-                Canvas.SetLeft(obstacle, (1000 / obstacleCount) * i); // Spread obstacles horizontally
+                Canvas.SetLeft(obstacle, (1000 / obstacleCount) * Math.Abs((random % (obstacleCount)))); // Spread obstacles horizontally
 
-                Canvas.SetTop(obstacle, (400 / (obstacleCount)) * i + 100); // Spread obstacles vertically
+                Canvas.SetTop(obstacle, (400 / (obstacleCount)) * (i - back) + 100); // Spread obstacles vertically
 
                 gameCanvas.Children.Add(obstacle);
 
@@ -132,7 +151,11 @@ namespace MovingObstacles
 
                 random = (random * 318211 + 1471343) % 167449;
 
+                if (random % 3 == 0) back = random % 2 + 1; else back = 0;
+
                 obstacleDirections.Add(( random + i )% 2 == 0);
+
+                obstacleSpeeds.Add((random) % 6 / 3 + obstacleSpeed);
 
             }
 
@@ -176,19 +199,19 @@ namespace MovingObstacles
 
             // Speler bewegen met pijltjes
 
-            if (Keyboard.IsKeyDown(Key.Up) && playerTop > 0)
+            if (Keyboard.IsKeyDown(Key.Up) || Keyboard.IsKeyDown(Key.W) && playerTop > 0)
 
                 playerTop -= 5;
 
-            if (Keyboard.IsKeyDown(Key.Down) && playerTop < gameCanvas.ActualHeight - player.Height)
+            if (Keyboard.IsKeyDown(Key.Down) || Keyboard.IsKeyDown(Key.S) && playerTop < gameCanvas.ActualHeight - player.Height)
 
                 playerTop += 5;
 
-            if (Keyboard.IsKeyDown(Key.Left) && playerLeft > 0)
+            if (Keyboard.IsKeyDown(Key.Left) || Keyboard.IsKeyDown(Key.A) && playerLeft > 0)
 
                 playerLeft -= 5;
 
-            if (Keyboard.IsKeyDown(Key.Right) && playerLeft < gameCanvas.ActualWidth - player.Width)
+            if (Keyboard.IsKeyDown(Key.Right) || Keyboard.IsKeyDown(Key.D) && playerLeft < gameCanvas.ActualWidth - player.Width)
 
                 playerLeft += 5;
 
@@ -204,11 +227,11 @@ namespace MovingObstacles
 
                 if (obstacleDirections[i])
 
-                    obstacleLeft += obstacleSpeed;  // Naar rechts
+                    obstacleLeft += obstacleSpeeds[i];  // Naar rechts
 
                 else
 
-                    obstacleLeft -= obstacleSpeed;  // Naar links
+                    obstacleLeft -= obstacleSpeeds[i];  // Naar links
 
 
 
@@ -254,11 +277,14 @@ namespace MovingObstacles
             {
 
                 timer.Stop();
-
+                
                 level++;
-                obstacleSpeed++;
 
-                obstacleCount++;
+                if (level % 2 == 0)
+                {
+                    obstacleSpeed+=.5;
+                    obstacleCount++;
+                }
 
 
                 ResetGame();
