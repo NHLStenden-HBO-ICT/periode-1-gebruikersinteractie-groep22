@@ -1,21 +1,36 @@
-﻿<Window x:Class="MovingObstacles.MainWindow"
-
+﻿<Window x:Class="WpfApp2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="TimerScherm" Height="720" Width="1280">
+    <Grid>
+        <Button Content="1" Margin="173,297,975,308"/>
+        <Button Content="4" Margin="173,431,975,174"/>
+        <Button Content="7" Margin="173,566,975,39"/>
+        <Button Content="5" Margin="375,431,773,174"/>
+        <Button Content="2" Margin="375,297,773,308"/>
+        <Button Content="8" Margin="375,566,773,39"/>
+        <Button Content="6" Margin="574,431,574,174"/>
+        <Button Content="3" Margin="574,297,574,308"/>
+        <Button Content="9" Margin="574,566,574,39"/>
+        <Button Content="KLAAR" Margin="866,386,138,88"/>
+        <Label Content="PINCODE INVOEREN" Margin="174,79,572,487"/>
+        <Label Content="SPEELTIJD INVOEREN" Margin="866,74,144,461" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.218"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Border BorderBrush="Black" BorderThickness="5" Margin="866,72,144,479"/>
+        <Border BorderBrush="Black" BorderThickness="5" Margin="171,72,572,479"/>
 
-        Title="Moving Obstacles" Width="1280" Height="720">
-
-    <Canvas Name="gameCanvas" Background="White">
-
-        <!-- Player -->
-
-        <Rectangle x:Name="player" Width="50" Height="50" Fill="Blue" Canvas.Left="640" Canvas.Top="585"/>
-
-
-
-
-
-    </Canvas>
-
+    </Grid>
 </Window>
+
