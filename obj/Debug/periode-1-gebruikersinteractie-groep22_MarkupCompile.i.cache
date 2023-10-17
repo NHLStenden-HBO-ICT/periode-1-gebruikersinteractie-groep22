@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Alwin\Documents\WorkshopsIC\periode-1-gebruikersinteractie-groep22\obj\Debug\
+E:\GITHUB\source\repos\periode-1-gebruikersinteractie-groep22\obj\Debug\
 periode_1_gebruikersinteractie_groep22
 none
 false
 DEBUG;TRACE
-C:\Users\Alwin\Documents\WorkshopsIC\periode-1-gebruikersinteractie-groep22\App.xaml
-1219584333
+E:\GITHUB\source\repos\periode-1-gebruikersinteractie-groep22\App.xaml
+513274910
 
-6-793535042
+101560528017
 13-38814620
-MainWindow.xaml;
+GameWindow.xaml;MainWindow.xaml;MultiplayerWindow.xaml;TimerPage.xaml;UitlegPage.xaml;
 
 True
 

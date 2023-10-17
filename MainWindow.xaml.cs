@@ -1,356 +1,44 @@
+using MovingObstacles;
+using periode_1_gebruikersinteractie_groep22;
 using System;
-
 using System.Collections.Generic;
-
 using System.Windows;
-
 using System.Windows.Controls;
 
-using System.Windows.Input;
+namespace Menus {
 
-using System.Windows.Media;
-
-using System.Windows.Shapes;
-
-using System.Windows.Threading;
-using System.Xml.Schema;
-
-namespace MovingObstacles
-
-{
-
-    public partial class MainWindow : Window
-
-    {
-
-        private double playerLeft;
-
-        private double playerTop;
-
-        private List<Rectangle> obstacles;
-
-        private List<bool> obstacleDirections;
-        private List<double> obstacleSpeeds;
-
-        private DispatcherTimer timer;
-
-        private double obstacleSpeed = 5;
-
-        private int obstacleCount = 4; // Aantal obstakels
-        private int level = 1; 
-
-
-
-        private double finishLineY; // Y-coördinaat van de finishlijn
-
-        private double finishLineHeight = 5; // Hoogte van de finishlijn
-
-
+    public partial class MainWindow : Window {
 
         public MainWindow()
-
         {
 
             InitializeComponent();
-
-            playerLeft = Canvas.GetLeft(player);
-
-            playerTop = Canvas.GetTop(player);
-
-            timer = new DispatcherTimer();
-
-            timer.Interval = TimeSpan.FromMilliseconds(10);
-
-            timer.Tick += Timer_Tick;
-
-            timer.Start();
-
-
-
-
-            InitializeObstacles();
-
-
-
-            // Bepaal de Y-coördinaat van de finishlijn 
-
-            finishLineY = 50;
-
-
-
-            // Finishlijn toegevoegd
-
-            AddFinishLine();
-
+            
         }
 
 
-
-        private void InitializeObstacles()
-
+        private void Uitleg_Click(object sender, RoutedEventArgs e)
         {
-
-            int back = 0;
-            obstacles = new List<Rectangle>();
-
-            obstacleDirections = new List<bool>();
-            obstacleSpeeds = new List<double>();
-
-            int random = level * 387;
-            int r = 30;
-
-
-            for (int i = 0; i < obstacleCount; i++)
-
-            {
-
-
-                r = Math.Abs((random % 3)) * 30 + 30;
-                byte colorR = 0;
-                byte colorG = 0;
-                byte colorB = 0;
-
-                if (r == 30) {
-                    colorR = 255;
-                } else if (r == 60)
-                {
-                    colorR = 255;
-                    colorG = 255;
-                } else
-                {
-                    colorB = 255;
-                }
-                Color c = Color.FromRgb(colorR, colorG, colorB);
-
-                Rectangle obstacle = new Rectangle
-
-                {
-
-                    Width = r, // random width
-                    Height = 30,
-                    Fill = new SolidColorBrush(c)
-
-                };
-
-                
-
-
-                // Set initial position
-
-                Canvas.SetLeft(obstacle, (1000 / obstacleCount) * Math.Abs((random % (obstacleCount)))); // Spread obstacles horizontally
-
-                Canvas.SetTop(obstacle, (400 / (obstacleCount)) * (i - back) + 100); // Spread obstacles vertically
-
-                gameCanvas.Children.Add(obstacle);
-
-                obstacles.Add(obstacle);
-
-
-
-                // Set initial direction (true for right, false for left)
-
-                random = (random * 318211 + 1471343) % 167449;
-
-                if (random % 3 == 0) back = random % 2 + 1; else back = 0;
-
-                obstacleDirections.Add(( random + i )% 2 == 0);
-
-                obstacleSpeeds.Add((random) % 6 / 3 + obstacleSpeed);
-
-            }
-
+            Main.Content = new UitlegPage();
         }
 
-
-
-        private void AddFinishLine()
-
+        private void MultiPlayer_Click(object sender, RoutedEventArgs e)
         {
-
-            Line finishLine = new Line
-
-            {
-
-                X1 = 0,
-
-                Y1 = finishLineY,
-
-                X2 = gameCanvas.ActualWidth,
-
-                Y2 = finishLineY,
-
-                Stroke = Brushes.Green,
-
-                StrokeThickness = finishLineHeight
-
-            };
-
-
-
-            gameCanvas.Children.Add(finishLine);
-
+            MultiplayerWindow multiplayerWindow = new MultiplayerWindow();
+            multiplayerWindow.Show();
+            this.Close();
         }
 
-
-
-        private void Timer_Tick(object sender, EventArgs e)
-
+        private void SinglePlayer_Click(object sender, RoutedEventArgs e)
         {
-
-            // Speler bewegen met pijltjes
-
-            if (Keyboard.IsKeyDown(Key.Up) || Keyboard.IsKeyDown(Key.W) && playerTop > 0)
-
-                playerTop -= 5;
-
-            if (Keyboard.IsKeyDown(Key.Down) || Keyboard.IsKeyDown(Key.S) && playerTop < gameCanvas.ActualHeight - player.Height)
-
-                playerTop += 5;
-
-            if (Keyboard.IsKeyDown(Key.Left) || Keyboard.IsKeyDown(Key.A) && playerLeft > 0)
-
-                playerLeft -= 5;
-
-            if (Keyboard.IsKeyDown(Key.Right) || Keyboard.IsKeyDown(Key.D) && playerLeft < gameCanvas.ActualWidth - player.Width)
-
-                playerLeft += 5;
-
-
-
-            // Move obstacles
-
-            for (int i = 0; i < obstacles.Count; i++)
-
-            {
-
-                double obstacleLeft = Canvas.GetLeft(obstacles[i]);
-
-                if (obstacleDirections[i])
-
-                    obstacleLeft += obstacleSpeeds[i];  // Naar rechts
-
-                else
-
-                    obstacleLeft -= obstacleSpeeds[i];  // Naar links
-
-
-
-
-
-                if (obstacleLeft > gameCanvas.ActualWidth - obstacles[i].Width || obstacleLeft < 0)
-
-                    if (obstacleDirections[i]) { 
-                        obstacleLeft = 0;
-                    } else
-                    {
-                        obstacleLeft = gameCanvas.ActualWidth - obstacles[i].Width;
-                    }
-
-
-
-                Canvas.SetLeft(obstacles[i], obstacleLeft);
-
-
-
-                // Check for collision with the player
-
-                if (IsCollision(player, obstacles[i]))
-
-                {
-
-                    timer.Stop();
-
-                    MessageBox.Show("Game Over! Je hebt een obstakel geraakt.");
-
-                    ResetGame();
-
-                }
-
-            }
-
-
-
-            // Check if the player has reached the finish line
-
-            if (playerTop <= finishLineY + finishLineHeight)
-
-            {
-
-                timer.Stop();
-                
-                level++;
-
-                if (level % 2 == 0)
-                {
-                    obstacleSpeed+=.5;
-                    obstacleCount++;
-                }
-
-
-                ResetGame();
-
-            }
-
-
-
-            // Update positie
-
-            Canvas.SetTop(player, playerTop);
-
-            Canvas.SetLeft(player, playerLeft);
-
+            GameWindow gameWindow = new GameWindow(false);
+            gameWindow.Show();
+            this.Close();
         }
 
-
-
-        private bool IsCollision(UIElement element1, UIElement element2)
-
+        private void Tijd_Click(object sender, RoutedEventArgs e)
         {
-
-            Rect rect1 = new Rect(Canvas.GetLeft(element1), Canvas.GetTop(element1), element1.RenderSize.Width, element1.RenderSize.Height);
-
-            Rect rect2 = new Rect(Canvas.GetLeft(element2), Canvas.GetTop(element2), element2.RenderSize.Width, element2.RenderSize.Height);
-
-            return rect1.IntersectsWith(rect2);
-
+            Main.Content = new TimerPage();
         }
-
-
-
-        private void ResetGame()
-
-        {
-
-
-
-            playerLeft = 640;
-
-            playerTop = 585;
-
-            timer.Start();
-
-            // clear canvas but keep player object
-            List<UIElement> objectsToKeep = new List<UIElement>();
-            objectsToKeep.Add(player);
-            gameCanvas.Children.Clear();
-            foreach (UIElement obj in objectsToKeep)
-            {
-                gameCanvas.Children.Add(obj);
-            }
-
-
-            Canvas.SetLeft(player, 640);
-
-            Canvas.SetTop(player, 585);
-
-            InitializeObstacles();
-
-
-
-
-
-        }
-
     }
-
 }

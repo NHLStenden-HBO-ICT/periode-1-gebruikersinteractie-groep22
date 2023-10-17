@@ -1,0 +1,32 @@
+﻿<Page x:Class="periode_1_gebruikersinteractie_groep22.TimerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:periode_1_gebruikersinteractie_groep22"
+      mc:Ignorable="d" d:DesignHeight="460" d:DesignWidth="640"
+      Title="TimerPage" Width="640" Height="460">
+
+    <Canvas Name="TimerCanvas" Background="#FF929292">
+
+        <Button Name="Knop1" Content="1" Canvas.Left="41" Canvas.Top="117" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop1_Click"/>
+        <Button Name="Knop2" Content="2" Canvas.Left="166" Canvas.Top="117" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop2_Click"/>
+        <Button Name="Knop3" Content="3" Canvas.Left="290" Canvas.Top="117" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop3_Click"/>
+        <Button Name="Knop4" Content="4" Canvas.Left="41" Canvas.Top="238" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop4_Click"/>
+        <Button Name="Knop5" Content="5" Canvas.Left="166" Canvas.Top="238" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop5_Click"/>
+        <Button Name="Knop6" Content="6" Canvas.Left="290" Canvas.Top="238" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop6_Click"/>
+        <Button Name="Knop7" Content="7" Canvas.Left="41" Canvas.Top="354" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop7_Click"/>
+        <Button Name="Knop8" Content="8" Canvas.Left="166" Canvas.Top="354" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop8_Click"/>
+        <Button Name="Knop9" Content="9" Canvas.Left="290" Canvas.Top="354" HorizontalAlignment="Center" VerticalAlignment="Top" Width="90" Height="90" Click="Knop9_Click"/>
+
+        <Button Name="KnopKlaar" Content="KLAAR" Canvas.Left="455" Canvas.Top="303" HorizontalAlignment="Left" VerticalAlignment="Center" Height="100" Width="100" Click="KnopKlaar_Click"/>
+        <Border Name="SpeelTijdBorder" BorderBrush="Black" BorderThickness="5" Height="55" Canvas.Left="426" Canvas.Top="23" Width="158" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Red">
+            <Label Content="SPEELTIJD" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Height="35" VerticalAlignment="Center" Width="138" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </Border>
+        <Border Name="PincodeBorder" BorderBrush="Black" BorderThickness="5" Height="55" Canvas.Left="86" Canvas.Top="23" Width="234" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Lime">
+            <Label Content="PINCODE INVOEREN" Margin="5,5,5,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+        </Border>
+
+    </Canvas>
+
+</Page>
