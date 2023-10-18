@@ -1,15 +1,15 @@
-﻿<Window x:Class="periode_1_gebruikersinteractie_groep22.UitlegPage"
+﻿<Page x:Class="periode_1_gebruikersinteractie_groep22.UitlegPage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:periode_1_gebruikersinteractie_groep22"
         mc:Ignorable="d" d:DesignHeight="460" d:DesignWidth="640"
-        Title="UitlegPage" Height="460" Width="640"
-        WindowStyle="None"
-        Background="#181735">
+        Title="UitlegPage" Height="460" Width="640">
 
-    <Grid>
+
+    <Grid Background="#FF008AB7">
+
         <Button Content="W" HorizontalAlignment="Left" Margin="105,259,0,0" VerticalAlignment="Top" Height="90" Width="90" FontSize="36" FontWeight="Bold"/>
         <Button Content="S" HorizontalAlignment="Left" Margin="105,354,0,0" VerticalAlignment="Top" Height="90" Width="90" FontWeight="Bold" FontSize="36"/>
         <Button Content="A" HorizontalAlignment="Left" Margin="10,354,0,0" VerticalAlignment="Top" Height="90" Width="90" FontSize="36" FontWeight="Bold"/>
@@ -32,10 +32,7 @@
                    FontSize="50"
         FontWeight="Medium" RenderTransformOrigin="0.524,0.813" Height="83"/>
         </Border>
-        <Button Content="X" HorizontalAlignment="Left" Height="70" Margin="565,3,0,0" VerticalAlignment="Top" Width="70" FontSize="36" FontWeight="Bold" Background="#FFA20F0F"/>
-
-
-
+        <Button Name="Close" Content="X" HorizontalAlignment="Left" Height="70" Margin="570,0,0,0" VerticalAlignment="Top" Width="70" FontSize="36" FontWeight="Bold" Background="#FFA20F0F" Click="Close_Click"/>
 
     </Grid>
-</Window>
+</Page>

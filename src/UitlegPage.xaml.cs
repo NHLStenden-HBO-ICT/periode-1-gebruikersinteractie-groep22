@@ -15,10 +15,15 @@ using System.Windows.Shapes;
 
 namespace periode_1_gebruikersinteractie_groep22 {
 
-    public partial class UitlegPage : Window {
+    public partial class UitlegPage : Page{
         public UitlegPage()
         {
             InitializeComponent();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
         }
     }
 }
