@@ -7,13 +7,21 @@
         d:DesignHeight="720" d:DesignWidth="1280"
         Title="MainWindow" Width="1280" Height="720">
 
-    <Canvas Name="StartCanvas" Background="White">
+    <Canvas Name="StartCanvas" Background="Black">
         <Grid Height="720" Width="1280">
-            <Button Name="Uitleg" Content="Uitleg" Margin="559,302,559,301" FontSize="36" Click="Uitleg_Click"/>
-            <Button Name="SinglePlayer" Content="SinglePlayer" Margin="215,136,847,457" FontSize="36" Click="SinglePlayer_Click"/>
-            <Button Name="MultiPlayer" Content="MultiPlayer" Margin="867,136,195,457" FontSize="36" Click="MultiPlayer_Click"/>
-            <Button Name="Tijd" Content="Tijd" Margin="1153,584,27,36" FontSize="36" Click="Tijd_Click" Height="100"/>
-            <Label Content="Frogger Spel" RenderTransformOrigin="-0.948,0.849" Width="342" FontSize="48" Margin="469,54,469,570" HorizontalContentAlignment="Center"/>
+            <Button Name="Uitleg" Content="Uitleg" Margin="559,302,559,301"  Click="Uitleg_Click"
+                    FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
+Foreground="Black" Background="#00c0ff"  Height="120px" BorderBrush="Black"/>
+            <Button Name="SinglePlayer" Content="1 Speler" Margin="215,136,847,457"  Click="SinglePlayer_Click"  
+                FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
+                Foreground="White" Background="#00ff0f" Width="200px" Height="120px" BorderBrush="Black"/>
+            <Button Name="MultiPlayer" Content="2 Spelers" Margin="867,136,195,457" Click="MultiPlayer_Click"
+                    FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
+                    Foreground="White" Background="#00ff0f" Width="200px" Height="120px" BorderBrush="Black"/>
+            <Button Name="Tijd" Content="Tijd" Margin="1153,584,27,36"  Click="Tijd_Click" Height="100"
+                    FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
+Foreground="Black" Background="#fff500"  BorderBrush="Black"/>
+            <Label Content="Frogger Spel" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" FontSize="50px" FontFamily="Baloo Bhai 2" Foreground="White" FontWeight="Bold"/>
             <Frame Name="Main" Margin="256,0,256,0" Height="720" Width="640" NavigationUIVisibility="Hidden"/>
         </Grid>
 
