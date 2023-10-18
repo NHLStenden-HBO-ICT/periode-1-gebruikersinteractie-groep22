@@ -31,15 +31,16 @@ namespace MovingObstacles
 
         private List<bool> obstacleDirections;
         private List<double> obstacleSpeeds;
+        private List<double> obstacleWave;
 
         private DispatcherTimer timer;
 
         private double obstacleSpeed = 5;
 
         private int obstacleCount = 4; // Aantal obstakels
-        private int level = 1; 
+        private int level = 1;
 
-
+        private double wave = 0;
 
         private double finishLineY; // Y-coördinaat van de finishlijn
 
@@ -89,23 +90,28 @@ namespace MovingObstacles
         private void InitializeObstacles()
 
         {
-
+            wave = 0;
             int back = 0;
             obstacles = new List<Rectangle>();
 
             obstacleDirections = new List<bool>();
             obstacleSpeeds = new List<double>();
+            obstacleWave = new List<double>();
 
             int random = level * 387;
             int r = 30;
+            
+            
 
 
             for (int i = 0; i < obstacleCount; i++)
 
             {
 
-
+                double w = 0;
                 r = Math.Abs((random % 3)) * 30 + 30;
+                if (Math.Abs(random % 15) == 0) r = 25;
+
                 byte colorR = 0;
                 byte colorG = 0;
                 byte colorB = 0;
@@ -116,9 +122,13 @@ namespace MovingObstacles
                 {
                     colorR = 255;
                     colorG = 255;
-                } else
+                } else if (r == 90)
                 {
                     colorB = 255;
+                } else
+                {
+                    colorG = 255;
+                    w = 4 + Math.Abs((random % 4));
                 }
                 Color c = Color.FromRgb(colorR, colorG, colorB);
 
@@ -154,9 +164,8 @@ namespace MovingObstacles
                 if (random % 3 == 0) back = random % 2 + 1; else back = 0;
 
                 obstacleDirections.Add(( random + i )% 2 == 0);
-
                 obstacleSpeeds.Add((random) % 6 / 3 + obstacleSpeed);
-
+                obstacleWave.Add(w);
             }
 
         }
@@ -199,31 +208,34 @@ namespace MovingObstacles
 
             // Speler bewegen met pijltjes
 
-            if (Keyboard.IsKeyDown(Key.Up) || Keyboard.IsKeyDown(Key.W) && playerTop > 0)
+            if ((Keyboard.IsKeyDown(Key.Up) || Keyboard.IsKeyDown(Key.W)) && playerTop > 0)
 
                 playerTop -= 5;
 
-            if (Keyboard.IsKeyDown(Key.Down) || Keyboard.IsKeyDown(Key.S) && playerTop < gameCanvas.ActualHeight - player.Height)
+            if ((Keyboard.IsKeyDown(Key.Down) || Keyboard.IsKeyDown(Key.S)) && playerTop < gameCanvas.ActualHeight - player.Height)
 
                 playerTop += 5;
 
-            if (Keyboard.IsKeyDown(Key.Left) || Keyboard.IsKeyDown(Key.A) && playerLeft > 0)
+            if ((Keyboard.IsKeyDown(Key.Left) || Keyboard.IsKeyDown(Key.A)) && playerLeft > 0)
 
                 playerLeft -= 5;
 
-            if (Keyboard.IsKeyDown(Key.Right) || Keyboard.IsKeyDown(Key.D) && playerLeft < gameCanvas.ActualWidth - player.Width)
+            if ((Keyboard.IsKeyDown(Key.Right) || Keyboard.IsKeyDown(Key.D)) && playerLeft < gameCanvas.ActualWidth - player.Width)
 
                 playerLeft += 5;
 
 
 
             // Move obstacles
+            wave += .25;
+            
 
             for (int i = 0; i < obstacles.Count; i++)
 
             {
-
+                
                 double obstacleLeft = Canvas.GetLeft(obstacles[i]);
+                double obstacleUp = Canvas.GetTop(obstacles[i]);
 
                 if (obstacleDirections[i])
 
@@ -233,7 +245,7 @@ namespace MovingObstacles
 
                     obstacleLeft -= obstacleSpeeds[i];  // Naar links
 
-
+                obstacleUp += Math.Sin(wave) * obstacleWave[i];
 
 
 
@@ -249,6 +261,7 @@ namespace MovingObstacles
 
 
                 Canvas.SetLeft(obstacles[i], obstacleLeft);
+                Canvas.SetTop(obstacles[i], obstacleUp);
 
 
 
@@ -260,7 +273,7 @@ namespace MovingObstacles
 
                     timer.Stop();
 
-                    MessageBox.Show("Game Over! Je hebt een obstakel geraakt.");
+                    
 
                     ResetGame();
 
@@ -286,7 +299,7 @@ namespace MovingObstacles
                     obstacleCount++;
                 }
 
-
+                Level.Content = "Level: " + level;
                 ResetGame();
 
             }
@@ -332,6 +345,7 @@ namespace MovingObstacles
             // clear canvas but keep player object
             List<UIElement> objectsToKeep = new List<UIElement>();
             objectsToKeep.Add(player);
+            objectsToKeep.Add(Level);
             gameCanvas.Children.Clear();
             foreach (UIElement obj in objectsToKeep)
             {
