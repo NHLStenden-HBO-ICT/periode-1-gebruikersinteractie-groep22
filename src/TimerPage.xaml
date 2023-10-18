@@ -18,15 +18,17 @@
         <Button Name="Knop7" Content="7" Canvas.Left="41" Canvas.Top="354" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop7_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black"/>
         <Button Name="Knop8" Content="8" Canvas.Left="166" Canvas.Top="354" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop8_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black"/>
         <Button Name="Knop9" Content="9" Canvas.Left="290" Canvas.Top="354" HorizontalAlignment="Center" VerticalAlignment="Top" Width="90" Height="90" Click="Knop9_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black"/>
+        <Button Name="Knop0" Content="0" Canvas.Left="403" Canvas.Top="354" Width="90" Height="90" Click="Knop0_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
-        <Button Name="KnopKlaar" Content="Klaar" Canvas.Left="455" Canvas.Top="303" HorizontalAlignment="Left" VerticalAlignment="Center" Height="100" Width="100" Click="KnopKlaar_Click" Foreground="White"  Background="#00ff0f" FontSize="36px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black"/>
-        <Border Name="SpeelTijdBorder" BorderBrush="Black" BorderThickness="5" Height="55" Canvas.Left="426" Canvas.Top="23" Width="158" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FFFF7200">
-            <Label Content="Speeltijd" Foreground="White" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Height="35" VerticalAlignment="Center" Width="138" FontSize="23" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Baloo Bhai 2" FontWeight="Bold"/>
+        <Button Name="KnopKlaar" Content="Klaar" Canvas.Left="520" Canvas.Top="349" HorizontalAlignment="Left" VerticalAlignment="Top" Height="100" Width="100" Click="KnopKlaar_Click" Foreground="White"  Background="#00ff0f" FontSize="36px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black"/>
+        <Border Name="SpeelTijdBorder" BorderBrush="Black" BorderThickness="5" Height="55" Canvas.Left="403" Canvas.Top="23" Width="217" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FFFF7200">
+            <Label Name="InvoerSpeeltijd" Content="Speeltijd invoeren" Foreground="White" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Height="35" VerticalAlignment="Center" Width="217" FontSize="23" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Baloo Bhai 2" FontWeight="Bold"/>
         </Border>
         <Border Name="PincodeBorder" BorderBrush="Black" BorderThickness="5" Height="55" Canvas.Left="86" Canvas.Top="23" Width="234" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#00ff0f">
-            <Label Content="Pincode invoeren" Margin="5,5,5,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="23" Foreground="White" FontFamily="Baloo Bhai 2" FontWeight="Bold"/>
+            <Label Name="InvoerPincode" Content="Pincode invoeren" Margin="5,5,5,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="23" Foreground="White" FontFamily="Baloo Bhai 2" FontWeight="Bold"/>
         </Border>
         <Button Name="Close" Content="X" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" FontSize="36" FontWeight="Bold" Background="#FFA20F0F" Click="Close_Click"/>
+
 
     </Canvas>
 

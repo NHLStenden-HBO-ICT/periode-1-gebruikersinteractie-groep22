@@ -56,7 +56,7 @@ namespace MovingObstacles
         private int player2Score = 0;
         
 
-        public GameWindow(bool multiPlayer)
+        public GameWindow(bool multiPlayer, int timerTime)
 
         {
 

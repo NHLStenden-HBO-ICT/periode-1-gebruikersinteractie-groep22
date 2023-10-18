@@ -19,8 +19,12 @@ namespace periode_1_gebruikersinteractie_groep22 {
     /// Interaction logic for MultiplayerWindow.xaml
     /// </summary>
     public partial class MultiplayerWindow : Window {
-        public MultiplayerWindow()
+
+        private int Timertime;
+
+        public MultiplayerWindow(int timerTime)
         {
+            Timertime = timerTime;
             InitializeComponent();
         }
 
@@ -33,7 +37,7 @@ namespace periode_1_gebruikersinteractie_groep22 {
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow gameWindow = new GameWindow(true);
+            GameWindow gameWindow = new GameWindow(true, Timertime);
             gameWindow.Show();
             this.Close();
         }

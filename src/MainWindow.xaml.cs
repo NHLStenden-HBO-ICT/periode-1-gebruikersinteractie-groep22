@@ -11,9 +11,7 @@ namespace Menus {
 
         public MainWindow()
         {
-
             InitializeComponent();
-            
         }
 
 
@@ -24,14 +22,14 @@ namespace Menus {
 
         private void MultiPlayer_Click(object sender, RoutedEventArgs e)
         {
-            MultiplayerWindow multiplayerWindow = new MultiplayerWindow();
+            MultiplayerWindow multiplayerWindow = new MultiplayerWindow(TimerPage.timerTime);
             multiplayerWindow.Show();
             this.Close();
         }
 
         private void SinglePlayer_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow gameWindow = new GameWindow(false);
+            GameWindow gameWindow = new GameWindow(false, TimerPage.timerTime);
             gameWindow.Show();
             this.Close();
         }
