@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="src\PausePage.xaml.cs">
+      <DependentUpon>PausePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\MultiplayerWindow.xaml.cs">
       <DependentUpon>MultiplayerWindow.xaml</DependentUpon>
     </Compile>
@@ -64,6 +67,10 @@
     <Compile Include="src\UitlegPage.xaml.cs">
       <DependentUpon>UitlegPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="src\PausePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="src\GameWindow.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>

@@ -36,7 +36,7 @@ namespace MovingObstacles
         private List<double> obstacleSpeeds;
         private List<double> obstacleWave;
 
-        private DispatcherTimer timer;
+        public static DispatcherTimer timer;
 
         private double obstacleSpeed = 5;
 
@@ -394,9 +394,18 @@ namespace MovingObstacles
             }
 
 
-            // Update positie
+            // pause screen
 
-            Canvas.SetTop(player, playerTop);
+            if (Keyboard.IsKeyDown(Key.Escape))
+            {
+                Main.Content = new PausePage();
+                timer.Stop();
+            }
+
+
+                // Update positie
+
+                Canvas.SetTop(player, playerTop);
 
             Canvas.SetLeft(player, playerLeft);
 
