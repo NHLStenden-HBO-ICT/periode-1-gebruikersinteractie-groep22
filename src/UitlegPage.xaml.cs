@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 namespace periode_1_gebruikersinteractie_groep22 {
 
-    public partial class UitlegPage : Page {
+    public partial class UitlegPage : Window {
         public UitlegPage()
         {
             InitializeComponent();
