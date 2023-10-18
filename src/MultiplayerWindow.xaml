@@ -24,7 +24,5 @@
         <Button Name="Player1Down" Content="▼" HorizontalAlignment="Left" Margin="235,455,0,0" VerticalAlignment="Top" FontSize="75px" Foreground="White" Background="Black" BorderBrush="Black" Click="Player1Down_Click"/>
         <Button Name="Player2Down" Content="▼" HorizontalAlignment="Left" Margin="975,455,0,0" VerticalAlignment="Top" FontSize="75px" Foreground="White" Background="Black" BorderBrush="Black" Click="Player2Down_Click"/>
         <Button Name="Close" Content="╳" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontSize="30px" Foreground="#ff7200" Background="Black" BorderBrush="Black" Click="Close_Click"/>
-
-
     </Grid>
 </Window>

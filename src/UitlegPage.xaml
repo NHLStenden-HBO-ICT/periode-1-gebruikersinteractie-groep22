@@ -1,15 +1,43 @@
-﻿<Page x:Class="periode_1_gebruikersinteractie_groep22.UitlegPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:periode_1_gebruikersinteractie_groep22"
-      mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Title="UitlegPage.xaml" Height="720" Width="1280">
+﻿<Window x:Class="periode_1_gebruikersinteractie_groep22.UitlegPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:periode_1_gebruikersinteractie_groep22"
+        mc:Ignorable="d"
+        Title="UitlegPage" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#181735">
 
-    <Grid Background="Black">
+    <Grid>
+        <Button Content="W" HorizontalAlignment="Left" Margin="149,189,0,0" VerticalAlignment="Top" Height="100" Width="100" FontSize="36" FontWeight="Bold"/>
+        <Button Content="S" HorizontalAlignment="Left" Margin="149,303,0,0" VerticalAlignment="Top" Height="100" Width="100" FontWeight="Bold" FontSize="36"/>
+        <Button Content="A" HorizontalAlignment="Left" Margin="33,303,0,0" VerticalAlignment="Top" Height="100" Width="100" FontSize="36" FontWeight="Bold"/>
+        <Button Content="D" HorizontalAlignment="Left" Margin="266,303,0,0" VerticalAlignment="Top" Height="100" Width="100" RenderTransformOrigin="0.319,0.494" FontSize="36" FontWeight="Bold"/>
+        <TextBlock Text ="Uitleg"
+           Foreground="White"
+           VerticalAlignment="Top" Margin="333,0,315,0"
+                   FontSize="50"
+        FontWeight="Medium" RenderTransformOrigin="0.524,0.813" Height="83"/>
+        <TextBlock
+            Foreground="White"
+            VerticalAlignment="Top" Margin="98,107,484,0"
+            FontSize="48"
+            FontWeight="Medium"><Run Language="nl-nl" Text="Controls"/></TextBlock>
+        <TextBlock
+            Foreground="White"
+            VerticalAlignment="Top" Margin="484,107,82,0"
+            FontSize="48"
+            FontWeight="Medium"><Run Language="nl-nl" Text="Obstakels"/></TextBlock>
+        <TextBox x:Name="Text_Blok" HorizontalAlignment="Left" Height="214" Margin="438,189,0,0" Text="Hoe speel je?                       Beweeg met de wasd Controls over het Veld waarbij je obstakels vermijd en het eindpunt behaald zonder geraakt te worden.                       Herhaal dit voor elk level! " VerticalAlignment="Top" Width="330" Background="#FF1D1C3A" TextAlignment="Center" FontFamily="Yu Gothic UI Semibold" FontWeight="Bold" BorderBrush="White" Foreground="White" FontSize="22" TextWrapping="WrapWithOverflow"/>
+        <Border x:Name="Border" BorderThickness="5" HorizontalAlignment="Center" Height="81" VerticalAlignment="Top" Width="184" BorderBrush="#FF040412">
+            <Button Content="X" HorizontalAlignment="Left" Height="72" Margin="721,0,0,0" VerticalAlignment="Center" Width="67" BorderBrush="#FFFF1616" Background="Red"/>
+        </Border>
+        <Button Content="X" HorizontalAlignment="Left" Height="66" Margin="735,0,0,0" VerticalAlignment="Top" Width="65" FontSize="36" FontWeight="Bold" Background="#FFA20F0F"/>
+
+
+
 
     </Grid>
-
-</Page>
+</Window>
