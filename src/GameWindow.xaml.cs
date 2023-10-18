@@ -1,3 +1,4 @@
+using periode_1_gebruikersinteractie_groep22;
 using System;
 
 using System.Collections.Generic;
@@ -24,8 +25,10 @@ namespace MovingObstacles
     {
 
         private double playerLeft;
-
         private double playerTop;
+
+        private double player2Left = 0;
+        private double player2Top = 0; 
 
         private List<Rectangle> obstacles;
 
@@ -46,11 +49,18 @@ namespace MovingObstacles
 
         private double finishLineHeight = 5; // Hoogte van de finishlijn
 
+        private bool Multiplayer = false;
 
+
+        private int player1Score = 0;
+        private int player2Score = 0;
+        
 
         public GameWindow(bool multiPlayer)
 
         {
+
+            Multiplayer = multiPlayer;
 
             InitializeComponent();
 
@@ -66,7 +76,20 @@ namespace MovingObstacles
 
             timer.Start();
 
+            if (multiPlayer)
+            {
+                Level.Content = "Player 1: 0\nPlayer 2: 0";
 
+                player2Left = Canvas.GetLeft(player2);
+                player2Top = Canvas.GetTop(player2);
+
+                Random rnd = new Random();
+                level = rnd.Next(580);
+
+                obstacleCount = 12;
+                obstacleSpeed = 7;
+            }
+            else player2.Visibility = Visibility.Hidden;
 
 
             InitializeObstacles();
@@ -125,6 +148,7 @@ namespace MovingObstacles
                 } else if (r == 90)
                 {
                     colorB = 255;
+                    colorG = 127;
                 } else
                 {
                     colorG = 255;
@@ -208,22 +232,52 @@ namespace MovingObstacles
 
             // Speler bewegen met pijltjes
 
-            if ((Keyboard.IsKeyDown(Key.Up) || Keyboard.IsKeyDown(Key.W)) && playerTop > 0)
 
-                playerTop -= 5;
+            if (!Multiplayer)
+            {
+                if ((Keyboard.IsKeyDown(Key.Up) || Keyboard.IsKeyDown(Key.W)) && playerTop > 0)
 
-            if ((Keyboard.IsKeyDown(Key.Down) || Keyboard.IsKeyDown(Key.S)) && playerTop < gameCanvas.ActualHeight - player.Height)
+                    playerTop -= 5;
 
-                playerTop += 5;
+                if ((Keyboard.IsKeyDown(Key.Down) || Keyboard.IsKeyDown(Key.S)) && playerTop < gameCanvas.ActualHeight - player.Height)
 
-            if ((Keyboard.IsKeyDown(Key.Left) || Keyboard.IsKeyDown(Key.A)) && playerLeft > 0)
+                    playerTop += 5;
 
-                playerLeft -= 5;
+                if ((Keyboard.IsKeyDown(Key.Left) || Keyboard.IsKeyDown(Key.A)) && playerLeft > 0)
 
-            if ((Keyboard.IsKeyDown(Key.Right) || Keyboard.IsKeyDown(Key.D)) && playerLeft < gameCanvas.ActualWidth - player.Width)
+                    playerLeft -= 5;
 
-                playerLeft += 5;
+                if ((Keyboard.IsKeyDown(Key.Right) || Keyboard.IsKeyDown(Key.D)) && playerLeft < gameCanvas.ActualWidth - player.Width)
 
+                    playerLeft += 5;
+            } else
+            {
+                // player 1 movement
+
+                if (Keyboard.IsKeyDown(Key.W) && playerTop > 0)
+
+                    playerTop -= 5;
+
+                if (Keyboard.IsKeyDown(Key.S) && playerTop < gameCanvas.ActualHeight - player.Height)
+
+                    playerTop += 5;
+
+                if (Keyboard.IsKeyDown(Key.A) && playerLeft > 0)
+
+                    playerLeft -= 5;
+
+                if ( Keyboard.IsKeyDown(Key.D) && playerLeft < gameCanvas.ActualWidth - player.Width)
+
+                    playerLeft += 5;
+
+
+                // player 2 movement
+
+                if (Keyboard.IsKeyDown(Key.Up) && player2Top > 0) player2Top -= 5;
+                if (Keyboard.IsKeyDown(Key.Down) && player2Top < gameCanvas.ActualHeight - player.Height) player2Top += 5;
+                if (Keyboard.IsKeyDown(Key.Left) && player2Left > 0) player2Left -= 5; 
+                if (Keyboard.IsKeyDown(Key.Right) &&  player2Left < gameCanvas.ActualWidth - player.Width) player2Left += 5;
+            }
 
 
             // Move obstacles
@@ -270,13 +324,26 @@ namespace MovingObstacles
                 if (IsCollision(player, obstacles[i]))
 
                 {
+                    if (!Multiplayer)
+                    {
+                        timer.Stop();
+                        ResetGame();
+                    } else
+                    {
+                        playerLeft = 640;
+                        playerTop = 585;
+                        Canvas.SetLeft(player, 640);
+                        Canvas.SetTop(player, 585);
+                    }
 
-                    timer.Stop();
+                }
 
-                    
-
-                    ResetGame();
-
+                if (IsCollision(player2, obstacles[i]) && Multiplayer)
+                {
+                    player2Left = 640;
+                    player2Top = 585;
+                    Canvas.SetLeft(player2, 640);
+                    Canvas.SetTop(player2, 585);
                 }
 
             }
@@ -293,17 +360,38 @@ namespace MovingObstacles
                 
                 level++;
 
-                if (level % 2 == 0)
+                if (level % 2 == 0 && !Multiplayer)
                 {
                     obstacleSpeed+=.5;
                     obstacleCount++;
                 }
 
-                Level.Content = "Level: " + level;
+                if (!Multiplayer) Level.Content = "Level: " + level;
+                else { player1Score++;
+                    Level.Content = "Player 1: " + player1Score + "\nPlayer 2: " + player2Score;
+                }
+                    
+                
                 ResetGame();
-
             }
 
+            // player 2 checkfor finish
+
+            if ((player2Top <= finishLineY + finishLineHeight) && Multiplayer)
+
+            {
+
+                timer.Stop();
+
+                level++;
+
+                player2Score++;
+                Level.Content = "Player 1: " + player1Score + "\nPlayer 2: " + player2Score;
+
+
+
+                ResetGame();
+            }
 
 
             // Update positie
@@ -311,6 +399,10 @@ namespace MovingObstacles
             Canvas.SetTop(player, playerTop);
 
             Canvas.SetLeft(player, playerLeft);
+
+            Canvas.SetTop(player2, player2Top);
+
+            Canvas.SetLeft(player2, player2Left);
 
         }
 
@@ -346,6 +438,7 @@ namespace MovingObstacles
             List<UIElement> objectsToKeep = new List<UIElement>();
             objectsToKeep.Add(player);
             objectsToKeep.Add(Level);
+            if (Multiplayer) objectsToKeep.Add(player2);
             gameCanvas.Children.Clear();
             foreach (UIElement obj in objectsToKeep)
             {
@@ -356,6 +449,14 @@ namespace MovingObstacles
             Canvas.SetLeft(player, 640);
 
             Canvas.SetTop(player, 585);
+
+            if (Multiplayer)
+            {
+                player2Left = 640;
+                player2Top = 585;
+                Canvas.SetLeft(player2, 640);
+                Canvas.SetTop(player2, 585);
+            }
 
             InitializeObstacles();
 
