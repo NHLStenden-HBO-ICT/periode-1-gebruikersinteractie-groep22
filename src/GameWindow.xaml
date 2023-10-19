@@ -6,14 +6,15 @@
         mc:Ignorable="d"
         d:DesignHeight="720" d:DesignWidth="1280"
         Title="GameWindow" Width="1280" Height="720">
-    
+
     <Canvas Name="gameCanvas" Background="White">
 
         <!-- Player -->
 
-		<Rectangle x:Name="player" Width="50" Height="50" Fill="Blue" Canvas.Left="640" Canvas.Top="585"/>
+        <Rectangle x:Name="player" Width="50" Height="50" Fill="Blue" Canvas.Left="640" Canvas.Top="585"/>
         <Rectangle x:Name="player2" Width="50" Height="50" Fill="Orange" Canvas.Left="640" Canvas.Top="585"/>
         <Label x:Name="Level" Content="Level: 1" Canvas.Left="0" Canvas.Top="-10" FontSize="40px"/>
+        <Frame Name="Main" Height="720" Width="480" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="402"/>
 
 
 

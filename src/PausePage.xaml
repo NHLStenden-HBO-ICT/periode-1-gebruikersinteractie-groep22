@@ -1,0 +1,26 @@
+﻿<Page x:Class="periode_1_gebruikersinteractie_groep22.PausePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:periode_1_gebruikersinteractie_groep22"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="480"
+      Height="720" Width="480"
+      Title="PausePage"
+      Background="Black">
+
+    <Grid>
+        <Button Name="Resume" Content="Resume" HorizontalAlignment="Center" VerticalAlignment="Center" Height="106" Width="231"  Click="Resume_Click"
+                FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
+Foreground="White" Background="#00ff0f"  BorderBrush="Black"/>
+        <Button Name="Mainmenu" Content="Main menu" HorizontalAlignment="Center" VerticalAlignment="Top" Height="103" Width="232"  Margin="0,418,0,0" Click="Mainmenu_Click"
+                FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
+Foreground="White" Background="#FF7200" BorderBrush="Black"/>
+        <Button Name="Quit" Content="Quit" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="231"  Margin="0,526,0,0" Click="Quit_Click"
+                FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
+Foreground="White" Background="Red"  BorderBrush="Black"/>
+        <Label Content="Game Paused" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Height="77" Width="308" Foreground="White" FontSize="48" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+    </Grid>
+</Page>

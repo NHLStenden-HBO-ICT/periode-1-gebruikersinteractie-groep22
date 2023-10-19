@@ -2,7 +2,8 @@ using periode_1_gebruikersinteractie_groep22;
 using System;
 
 using System.Collections.Generic;
-
+using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Windows;
 
 using System.Windows.Controls;
@@ -36,7 +37,7 @@ namespace MovingObstacles
         private List<double> obstacleSpeeds;
         private List<double> obstacleWave;
 
-        private DispatcherTimer timer;
+        public static DispatcherTimer timer;
 
         private double obstacleSpeed = 5;
 
@@ -54,9 +55,11 @@ namespace MovingObstacles
 
         private int player1Score = 0;
         private int player2Score = 0;
+
+        public static bool closeWindow = false;
         
 
-        public GameWindow(bool multiPlayer)
+        public GameWindow(bool multiPlayer, int timerTime)
 
         {
 
@@ -394,9 +397,24 @@ namespace MovingObstacles
             }
 
 
-            // Update positie
+            // pause screen
 
-            Canvas.SetTop(player, playerTop);
+            if (Keyboard.IsKeyDown(Key.Escape))
+            {
+                Main.Content = new PausePage();
+                timer.Stop();
+            }
+
+            if (closeWindow)
+            {
+                this.Close();
+                closeWindow = false;
+            }
+
+
+                // Update positie
+
+                Canvas.SetTop(player, playerTop);
 
             Canvas.SetLeft(player, playerLeft);
 
@@ -438,6 +456,7 @@ namespace MovingObstacles
             List<UIElement> objectsToKeep = new List<UIElement>();
             objectsToKeep.Add(player);
             objectsToKeep.Add(Level);
+            objectsToKeep.Add(Main);
             if (Multiplayer) objectsToKeep.Add(player2);
             gameCanvas.Children.Clear();
             foreach (UIElement obj in objectsToKeep)
