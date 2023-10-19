@@ -36,11 +36,14 @@ namespace periode_1_gebruikersinteractie_groep22 {
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
+            GameWindow.timer.Start();
+            GameWindow.closeWindow = true;
         }
 
         private void Quit_Click(object sender, RoutedEventArgs e)
         {
-
+            GameWindow.timer.Start();
+            GameWindow.closeWindow = true;
         }
     }
 }

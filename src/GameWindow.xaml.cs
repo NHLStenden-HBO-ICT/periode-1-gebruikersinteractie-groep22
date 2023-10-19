@@ -2,7 +2,7 @@ using periode_1_gebruikersinteractie_groep22;
 using System;
 
 using System.Collections.Generic;
-
+using System.Runtime.CompilerServices;
 using System.Windows;
 
 using System.Windows.Controls;
@@ -54,6 +54,8 @@ namespace MovingObstacles
 
         private int player1Score = 0;
         private int player2Score = 0;
+
+        public static bool closeWindow = false;
         
 
         public GameWindow(bool multiPlayer, int timerTime)
@@ -400,6 +402,12 @@ namespace MovingObstacles
             {
                 Main.Content = new PausePage();
                 timer.Stop();
+            }
+
+            if (closeWindow)
+            {
+                this.Close();
+                closeWindow = false;
             }
 
 
