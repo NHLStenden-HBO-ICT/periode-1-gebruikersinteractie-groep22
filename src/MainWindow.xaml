@@ -7,7 +7,7 @@
         d:DesignHeight="720" d:DesignWidth="1280"
         Title="MainWindow" Width="1280" Height="720">
 
-    <Canvas Name="StartCanvas" Background="Black">
+    <Canvas Name="StartCanvas" Background="#FF1D1D1B">
         <Grid Height="720" Width="1280">
             <Button Name="Uitleg" Content="Uitleg" Margin="559,302,559,301"  Click="Uitleg_Click"
                     FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
@@ -23,6 +23,7 @@ Foreground="Black" Background="#00c0ff"  Height="120px" BorderBrush="Black"/>
 Foreground="Black" Background="#fff500"  BorderBrush="Black"/>
             <Label Content="Frogger Spel" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" FontSize="50px" FontFamily="Baloo Bhai 2" Foreground="White" FontWeight="Bold"/>
             <Frame Name="Main" Margin="256,0,256,0" Height="720" Width="640" NavigationUIVisibility="Hidden"/>
+            <Image Source="/src/resources/Logo.png" HorizontalAlignment="Left" Height="150" Margin="36,534,0,0" VerticalAlignment="Top" Width="150"/>
         </Grid>
 
 

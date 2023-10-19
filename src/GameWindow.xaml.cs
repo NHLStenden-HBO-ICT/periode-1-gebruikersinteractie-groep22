@@ -3,6 +3,7 @@ using System;
 
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Windows;
 
 using System.Windows.Controls;
@@ -455,6 +456,7 @@ namespace MovingObstacles
             List<UIElement> objectsToKeep = new List<UIElement>();
             objectsToKeep.Add(player);
             objectsToKeep.Add(Level);
+            objectsToKeep.Add(Main);
             if (Multiplayer) objectsToKeep.Add(player2);
             gameCanvas.Children.Clear();
             foreach (UIElement obj in objectsToKeep)
