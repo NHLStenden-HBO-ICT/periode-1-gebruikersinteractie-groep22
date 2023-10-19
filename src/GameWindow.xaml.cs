@@ -63,6 +63,8 @@ namespace MovingObstacles
 
         {
 
+ 
+
             Multiplayer = multiPlayer;
 
             InitializeComponent();
@@ -407,6 +409,7 @@ namespace MovingObstacles
 
             if (closeWindow)
             {
+                timer.Stop();
                 this.Close();
                 closeWindow = false;
             }

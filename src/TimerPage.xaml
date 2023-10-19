@@ -7,28 +7,28 @@
       mc:Ignorable="d" d:DesignHeight="460" d:DesignWidth="640"
       Title="TimerPage" Width="640" Height="460">
 
-    <Canvas Name="TimerCanvas" Background="#FF6200B3">
+    <Canvas Name="TimerCanvas" Background="#1c0033">
 
-        <Button Name="Knop1" Content="1" Canvas.Left="41" Canvas.Top="117" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop1_Click"    Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black" />
-        <Button Name="Knop2" Content="2" Canvas.Left="166" Canvas.Top="117" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop2_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black"/>
-        <Button Name="Knop3" Content="3" Canvas.Left="290" Canvas.Top="117" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop3_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black"/>
-        <Button Name="Knop4" Content="4" Canvas.Left="41" Canvas.Top="238" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop4_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black"/>
-        <Button Name="Knop5" Content="5" Canvas.Left="166" Canvas.Top="238" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop5_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black"/>
-        <Button Name="Knop6" Content="6" Canvas.Left="290" Canvas.Top="238" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop6_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black"/>
-        <Button Name="Knop7" Content="7" Canvas.Left="41" Canvas.Top="354" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop7_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black"/>
-        <Button Name="Knop8" Content="8" Canvas.Left="166" Canvas.Top="354" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop8_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black"/>
-        <Button Name="Knop9" Content="9" Canvas.Left="290" Canvas.Top="354" HorizontalAlignment="Center" VerticalAlignment="Top" Width="90" Height="90" Click="Knop9_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black"/>
-        <Button Name="Knop0" Content="0" Canvas.Left="403" Canvas.Top="354" Width="90" Height="90" Click="Knop0_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button Name="Knop1" Foreground="#1D1D1B" Content="1" Canvas.Left="41" Canvas.Top="117" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop1_Click"    Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="#1c0033" />
+        <Button Name="Knop2" Foreground="#1D1D1B" Content="2" Canvas.Left="166" Canvas.Top="117" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop2_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="#1c0033"/>
+        <Button Name="Knop3" Foreground="#1D1D1B" Content="3" Canvas.Left="290" Canvas.Top="117" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop3_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="#1c0033"/>
+        <Button Name="Knop4" Foreground="#1D1D1B" Content="4" Canvas.Left="41" Canvas.Top="238" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop4_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="#1c0033"/>
+        <Button Name="Knop5" Foreground="#1D1D1B" Content="5" Canvas.Left="166" Canvas.Top="238" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop5_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="#1c0033"/>
+        <Button Name="Knop6" Foreground="#1D1D1B" Content="6" Canvas.Left="290" Canvas.Top="238" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop6_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="#1c0033"/>
+        <Button Name="Knop7" Foreground="#1D1D1B" Content="7" Canvas.Left="41" Canvas.Top="354" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop7_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="#1c0033"/>
+        <Button Name="Knop8" Foreground="#1D1D1B" Content="8" Canvas.Left="166" Canvas.Top="354" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="90" Click="Knop8_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="#1c0033"/>
+        <Button Name="Knop9" Foreground="#1D1D1B" Content="9" Canvas.Left="290" Canvas.Top="354" HorizontalAlignment="Center" VerticalAlignment="Top" Width="90" Height="90" Click="Knop9_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="#1c0033"/>
+        <Button Name="Knop0" Foreground="#1D1D1B" Content="0" Canvas.Left="403" Canvas.Top="354" Width="90" Height="90" Click="Knop0_Click" Background="#00c0ff" FontSize="38px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="#1c0033" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
-        <Button Name="KnopKlaar" Content="Klaar" Canvas.Left="520" Canvas.Top="349" HorizontalAlignment="Left" VerticalAlignment="Top" Height="100" Width="100" Click="KnopKlaar_Click" Foreground="White"  Background="#00ff0f" FontSize="36px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="Black"/>
-        <Border Name="SpeelTijdBorder" BorderBrush="Black" BorderThickness="5" Height="55" Canvas.Left="403" Canvas.Top="23" Width="217" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FFFF7200">
+        <Button Name="KnopKlaar" Content="Klaar" Canvas.Left="520" Canvas.Top="349" HorizontalAlignment="Left" VerticalAlignment="Top" Height="100" Width="100" Click="KnopKlaar_Click" Foreground="White"  Background="#00ff0f" FontSize="36px" FontFamily="Ballo Bhai 2" FontWeight="Bold" BorderBrush="#1c0033"/>
+        <Border Name="SpeelTijdBorder" BorderBrush="#1D1D1B" BorderThickness="5" Height="55" Canvas.Left="403" Canvas.Top="23" Width="217" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FFFF7200">
             <Label Name="InvoerSpeeltijd" Content="Speeltijd invoeren" Foreground="White" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Height="35" VerticalAlignment="Center" Width="217" FontSize="23" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Baloo Bhai 2" FontWeight="Bold"/>
         </Border>
-        <Border Name="PincodeBorder" BorderBrush="Black" BorderThickness="5" Height="55" Canvas.Left="86" Canvas.Top="23" Width="234" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#00ff0f">
+        <Border Name="PincodeBorder" BorderBrush="#1D1D1B" BorderThickness="5" Height="55" Canvas.Left="86" Canvas.Top="23" Width="234" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#00ff0f">
             <Label Name="InvoerPincode" Content="Pincode invoeren" Margin="5,5,5,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="23" Foreground="White" FontFamily="Baloo Bhai 2" FontWeight="Bold"/>
         </Border>
-        <Button Name="Close" Content="X" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" FontSize="36" FontWeight="Bold" Background="#FFA20F0F" Click="Close_Click"/>
 
+        <Button Name="Close" Content="╳" HorizontalAlignment="Left" Margin="0,0,0,0" Height="70" VerticalAlignment="Top" Width="70" FontSize="30px" Foreground="#ff7200" Background="#1c0033" BorderBrush="#1c0033" Click="Close_Click"/>
 
     </Canvas>
 
