@@ -10,10 +10,10 @@
 
     <Grid Background="#1c0033">
 
-        <Button Content="W" HorizontalAlignment="Left" Margin="105,259,0,0" VerticalAlignment="Top" Height="90" Width="90" FontSize="36" FontWeight="Bold" FontFamily="Baloo Bhai 2"/>
-        <Button Content="S" HorizontalAlignment="Left" Margin="105,354,0,0" VerticalAlignment="Top" Height="90" Width="90" FontWeight="Bold" FontSize="36" FontFamily="Baloo Bhai 2"/>
-        <Button Content="A" HorizontalAlignment="Left" Margin="10,354,0,0" VerticalAlignment="Top" Height="90" Width="90" FontSize="36" FontWeight="Bold" FontFamily="Baloo Bhai 2"/>
-        <Button Content="D" HorizontalAlignment="Left" Margin="200,354,0,0" VerticalAlignment="Top" Height="90" Width="90" RenderTransformOrigin="0.319,0.494" FontSize="36" FontWeight="Bold" FontFamily="Baloo Bhai 2"/>
+        <Button Name="Wk" Content="W" HorizontalAlignment="Left" Margin="105,259,0,0" VerticalAlignment="Top" Height="90" Width="90" FontSize="36" FontWeight="Bold" FontFamily="Baloo Bhai 2"/>
+        <Button Name="Sk" Content="S" HorizontalAlignment="Left" Margin="105,354,0,0" VerticalAlignment="Top" Height="90" Width="90" FontWeight="Bold" FontSize="36" FontFamily="Baloo Bhai 2"/>
+        <Button Name="Ak" Content="A" HorizontalAlignment="Left" Margin="10,354,0,0" VerticalAlignment="Top" Height="90" Width="90" FontSize="36" FontWeight="Bold" FontFamily="Baloo Bhai 2"/>
+        <Button Name="Dk" Content="D" HorizontalAlignment="Left" Margin="200,354,0,0" VerticalAlignment="Top" Height="90" Width="90" RenderTransformOrigin="0.319,0.494" FontSize="36" FontWeight="Bold" FontFamily="Baloo Bhai 2"/>
         <TextBlock
             Foreground="White"
             VerticalAlignment="Top" Margin="65,120,348,0"
@@ -26,7 +26,7 @@
             FontSize="48"
             FontFamily="Baloo Bhai 2"
             FontWeight="Medium" Height="70"><Run Language="nl-nl" Text="Obstakels"/></TextBlock>
-        <TextBox x:Name="Text_Blok" HorizontalAlignment="Left" Height="234" Margin="337,210,0,0" Text="Hoe speel je?                       Beweeg met de wasd Controls over het Veld waarbij je obstakels vermijd en het eindpunt behaald zonder geraakt te worden.                       Herhaal dit voor elk level! " VerticalAlignment="Top" Width="272" Background="#1c0033" TextAlignment="Center" FontFamily="Baloo Bhai 2" FontWeight="Bold" BorderBrush="White" Foreground="White" FontSize="22" TextWrapping="WrapWithOverflow"/>
+		<TextBox x:Name="Text_Blok" HorizontalAlignment="Left" Height="234" Margin="337,210,0,0" Text="Hoe speel je?                       Beweeg met de WASD Controls of de pijltjestoetsen over het Veld waarbij je obstakels vermijd en het eindpunt behaald zonder geraakt te worden.                       Herhaal dit voor elk level!                                  Voor twee spelers: Speler 1 beweegt met de WASD controls en Speler 2 met de pijltjestoetsen            Het doel is hetzelfde maar de speler die het eerste de overkant bereikt krijgt een punt." VerticalAlignment="Top" Width="272" Background="#1c0033" TextAlignment="Center" FontFamily="Baloo Bhai 2" FontWeight="Bold" BorderBrush="White" Foreground="White" FontSize="22" TextWrapping="WrapWithOverflow" />
         <Border x:Name="Border" BorderThickness="5" HorizontalAlignment="Left" Height="89" VerticalAlignment="Top" Width="152" BorderBrush="#FF040412" Margin="249,10,0,0">
             <TextBlock Text ="Uitleg"
            Foreground="White"
