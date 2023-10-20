@@ -8,19 +8,24 @@
       d:DesignHeight="720" d:DesignWidth="480"
       Height="720" Width="480"
       Title="PausePage"
-      Background="#1D1D1B">
+      Background="#1D1D1B"
+	  FocusVisualStyle="{x:Null}"
+	  KeyboardNavigation.DirectionalNavigation="None"
+	   >
+	
 
     <Grid>
+		
         <Button Name="Resume" Content="Resume" HorizontalAlignment="Center" VerticalAlignment="Center" Height="106" Width="231"  Click="Resume_Click"
-                FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
+                Focusable="False" KeyboardNavigation.DirectionalNavigation="None" FocusVisualStyle="{x:Null}" FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
 Foreground="White" Background="#00ff0f"  BorderBrush="Black"/>
         <Button Name="Mainmenu" Content="Main menu" HorizontalAlignment="Center" VerticalAlignment="Top" Height="103" Width="232"  Margin="0,418,0,0" Click="Mainmenu_Click"
-                FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
+                Focusable="False" KeyboardNavigation.DirectionalNavigation="None" FocusVisualStyle="{x:Null}" FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
 Foreground="White" Background="#FF7200" BorderBrush="Black"/>
         <Button Name="Quit" Content="Quit" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="231"  Margin="0,526,0,0" Click="Quit_Click"
-                FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
+                Focusable="False" KeyboardNavigation.DirectionalNavigation="None" FocusVisualStyle="{x:Null}" FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
 Foreground="White" Background="Red"  BorderBrush="Black"/>
-        <Label Content="Game Paused" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Height="77" Width="368" Foreground="White"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="50px" FontFamily="Baloo Bhai 2" FontWeight="Bold"/>
+        <Label KeyboardNavigation.DirectionalNavigation="None" FocusVisualStyle="{x:Null}" Content="Game Paused" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Height="77" Width="368" Foreground="White"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="50px" FontFamily="Baloo Bhai 2" FontWeight="Bold"/>
 
     </Grid>
 </Page>
