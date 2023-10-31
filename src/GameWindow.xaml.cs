@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 
 using System.Windows.Threading;
 using System.Xml.Schema;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MovingObstacles
 
@@ -61,12 +62,16 @@ namespace MovingObstacles
         private int player1Id;
         private int player2Id;
         private int TimerTime;
-        
+
+        ImageBrush p1Image = new ImageBrush();
+        ImageBrush p2Image = new ImageBrush();
+
 
         public GameWindow(bool multiPlayer, int timerTime, int player1id, int player2id)
 
         {
-
+            player1Id = player1id;
+            player2Id = player2id;
             TimerTime = timerTime;
 
             Multiplayer = multiPlayer;
@@ -85,10 +90,8 @@ namespace MovingObstacles
 
             timer.Start();
 
-            ImageBrush p1Image = new ImageBrush();
-            ImageBrush p2Image = new ImageBrush();
-            p1Image.ImageSource = new BitmapImage(new Uri(@"\src\resources\heads\Lego_hoofd" + player1id + ".png", UriKind.Relative));
-            p2Image.ImageSource = new BitmapImage(new Uri(@"\src\resources\heads\Lego_hoofd" + player2id + ".png", UriKind.Relative));
+            p1Image.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/src/resources/heads/Lego_hoofd" + player1id + ".png"));
+            p2Image.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/src/resources/heads/Lego_hoofd" + player2id + ".png"));
 
             player.Fill = p1Image;
             player2.Fill = p2Image;
@@ -376,8 +379,13 @@ namespace MovingObstacles
                 timer.Stop();
                 
                 level++;
+                if (!Multiplayer && player1Id < 20)
+                {
+                    player1Id++;
+                    p1Image.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/src/resources/heads/Lego_hoofd" + player1Id + ".png"));
+                }
 
-                if (level % 2 == 0 && !Multiplayer)
+                    if (level % 2 == 0 && !Multiplayer)
                 {
                     obstacleSpeed+=.5;
                     obstacleCount++;
