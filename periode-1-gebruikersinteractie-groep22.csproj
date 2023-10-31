@@ -160,5 +160,10 @@
     <Resource Include="src\resources\autos\Auto_red.png" />
     <Resource Include="src\resources\autos\Auto_yellow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\resources\others\beterere weg.png" />
+    <Resource Include="src\resources\others\mooigrasveldje.png" />
+    <Resource Include="src\resources\others\zieke finishlijn.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
