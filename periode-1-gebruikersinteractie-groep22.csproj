@@ -132,5 +132,27 @@
   <ItemGroup>
     <Resource Include="src\resources\Logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\resources\heads\Lego_hoofd1.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd10.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd11.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd12.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd13.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd14.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd15.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd16.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd17.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd18.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd19.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd2.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd20.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd3.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd4.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd5.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd6.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd7.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd8.png" />
+    <Resource Include="src\resources\heads\Lego_hoofd9.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

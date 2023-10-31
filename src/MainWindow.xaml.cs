@@ -29,7 +29,7 @@ namespace Menus {
 
         private void SinglePlayer_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow gameWindow = new GameWindow(false, TimerPage.timerTime);
+            GameWindow gameWindow = new GameWindow(false, TimerPage.timerTime, 1, 1);
             gameWindow.Show();
             this.Close();
         }

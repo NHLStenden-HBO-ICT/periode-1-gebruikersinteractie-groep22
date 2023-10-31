@@ -59,7 +59,7 @@ namespace MovingObstacles
         public static bool closeWindow = false;
         
 
-        public GameWindow(bool multiPlayer, int timerTime)
+        public GameWindow(bool multiPlayer, int timerTime, int player1id, int player2id)
 
         {
 

@@ -21,11 +21,14 @@ namespace periode_1_gebruikersinteractie_groep22 {
     public partial class MultiplayerWindow : Window {
 
         private int Timertime;
-
+        private int player1id = 1;
+        private int player2id = 2;
         public MultiplayerWindow(int timerTime)
         {
             Timertime = timerTime;
             InitializeComponent();
+
+            ImageUpdate();
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -37,29 +40,51 @@ namespace periode_1_gebruikersinteractie_groep22 {
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow gameWindow = new GameWindow(true, Timertime);
-            gameWindow.Show();
-            this.Close();
+            if(player1id != player2id)
+            {
+                GameWindow gameWindow = new GameWindow(true, Timertime, player1id, player2id);
+                gameWindow.Show();
+                this.Close();
+            }
         }
 
         private void Player1Up_Click(object sender, RoutedEventArgs e)
         {
+            player1id++;
+            if (player1id == 21)
+                player1id = 1;
+            ImageUpdate();
 
         }
 
         private void Player1Down_Click(object sender, RoutedEventArgs e)
         {
-
+            player1id--;
+            if (player1id == 0)
+                player1id = 20;
+            ImageUpdate();
         }
 
         private void Player2Up_Click(object sender, RoutedEventArgs e)
         {
-
+            player2id++;
+            if (player2id == 21)
+                player2id = 1;
+            ImageUpdate();
         }
 
         private void Player2Down_Click(object sender, RoutedEventArgs e)
         {
+            player2id--;
+            if (player2id == 0)
+                player2id = 20;
+            ImageUpdate();
+        }
 
+        private void ImageUpdate()
+        {
+            Player1Image.Source = new BitmapImage(new Uri(@"\src\resources\heads\Lego_hoofd" + player1id + ".png", UriKind.Relative));
+            Player2Image.Source = new BitmapImage(new Uri(@"\src\resources\heads\Lego_hoofd" + player2id + ".png", UriKind.Relative));
         }
         
     }
