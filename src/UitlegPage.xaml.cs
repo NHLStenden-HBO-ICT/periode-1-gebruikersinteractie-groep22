@@ -58,6 +58,8 @@ namespace periode_1_gebruikersinteractie_groep22 {
             }
         }
 
+
+
             private void Close_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
