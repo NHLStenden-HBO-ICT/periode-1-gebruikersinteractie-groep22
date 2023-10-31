@@ -456,7 +456,12 @@ namespace MovingObstacles
             timer.Start();
 
             // clear canvas but keep player object
-            List<UIElement> objectsToKeep = new List<UIElement>();
+            List<UIElement> objectsToKeep = new List<UIElement>(); 
+            objectsToKeep.Add(finishlijn1);
+            objectsToKeep.Add(finishlijn2);
+            objectsToKeep.Add(finishlijn3);
+            objectsToKeep.Add(AchtergrondWeg);
+            objectsToKeep.Add(mooigrasveldje);
             objectsToKeep.Add(player);
             objectsToKeep.Add(Level);
             objectsToKeep.Add(Main);
