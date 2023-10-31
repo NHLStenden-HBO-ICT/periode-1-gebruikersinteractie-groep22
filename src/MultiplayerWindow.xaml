@@ -10,11 +10,15 @@
 
     <Grid Background="#1D1D1B">
         <Label Content="2 Spelers" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" FontSize="50px" FontFamily="Baloo Bhai 2" Foreground="White" FontWeight="Bold"/>
-        <Border BorderBrush="White" BorderThickness="1" Height="200" Width="200"  Margin="170,250,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <Image HorizontalAlignment="Left" Height="200" Width="200"  VerticalAlignment="Top"/>
+        <Border BorderBrush="White" BorderThickness="1" Height="210" Width="206" Margin="170,240,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+        
+            <Image Name="Player1Image" HorizontalAlignment="Center" Height="200" Width="200" Margin="3,1.5,0,0" VerticalAlignment="Center"/>
+
         </Border>
-        <Border BorderBrush="White" BorderThickness="1" Height="200" Width="200"  Margin="910,250,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <Image HorizontalAlignment="Left" Height="200" Width="200"  VerticalAlignment="Top"/>
+        <Border BorderBrush="White" BorderThickness="1" Height="210" Width="206" Margin="910,240,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+          
+                <Image Name="Player2Image" HorizontalAlignment="Center" Height="200" Width="200" Margin="3,1.5,0,0" VerticalAlignment="Center"/>
+
         </Border>
         <Button Name="Start" Content="Start" HorizontalAlignment="Center" Margin="0,550,0,0" VerticalAlignment="Top" FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
                 Foreground="White" Background="#00ff0f" Width="200px" Height="55px" BorderBrush="#1D1D1B" Click="Start_Click"/>
