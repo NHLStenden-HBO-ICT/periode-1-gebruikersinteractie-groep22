@@ -154,5 +154,11 @@
     <Resource Include="src\resources\heads\Lego_hoofd8.png" />
     <Resource Include="src\resources\heads\Lego_hoofd9.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\resources\autos\Auto_blue.png" />
+    <Resource Include="src\resources\autos\Auto_green.png" />
+    <Resource Include="src\resources\autos\Auto_red.png" />
+    <Resource Include="src\resources\autos\Auto_yellow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
