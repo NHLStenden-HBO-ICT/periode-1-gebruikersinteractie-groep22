@@ -11,7 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 using System.Windows.Media;
-
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using System.Windows.Threading;
@@ -57,13 +57,17 @@ namespace MovingObstacles
         private int player2Score = 0;
 
         public static bool closeWindow = false;
+
+        private int player1Id;
+        private int player2Id;
+        private int TimerTime;
         
 
         public GameWindow(bool multiPlayer, int timerTime, int player1id, int player2id)
 
         {
 
- 
+            TimerTime = timerTime;
 
             Multiplayer = multiPlayer;
 
@@ -80,6 +84,14 @@ namespace MovingObstacles
             timer.Tick += Timer_Tick;
 
             timer.Start();
+
+            ImageBrush p1Image = new ImageBrush();
+            ImageBrush p2Image = new ImageBrush();
+            p1Image.ImageSource = new BitmapImage(new Uri(@"\src\resources\heads\Lego_hoofd" + player1id + ".png", UriKind.Relative));
+            p2Image.ImageSource = new BitmapImage(new Uri(@"\src\resources\heads\Lego_hoofd" + player2id + ".png", UriKind.Relative));
+
+            player.Fill = p1Image;
+            player2.Fill = p2Image;
 
             if (multiPlayer)
             {
