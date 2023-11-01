@@ -11,8 +11,17 @@
 
         <!-- Player -->
 
-        <Rectangle x:Name="player" Width="50" Height="50" Fill="Blue" Canvas.Left="640" Canvas.Top="585"/>
-        <Rectangle x:Name="player2" Width="50" Height="50" Fill="Orange" Canvas.Left="640" Canvas.Top="585"/>
+
+        <Image x:Name="finishlijn1" Source="/src/resources/others/zieke finishlijn.png" HorizontalAlignment="Left" VerticalAlignment="Center" Width="1295" Height="59" Canvas.Left="-11" />
+        <Image x:Name="finishlijn2" Source="/src/resources/others/zieke finishlijn.png" HorizontalAlignment="Left" Canvas.Left="530" VerticalAlignment="Top" Height="87" Width="485" Canvas.Top="3" />
+        <Image x:Name="finishlijn3" Source="/src/resources/others/zieke finishlijn.png" Canvas.Left="1015" Height="50" Width="528" Canvas.Top="3" HorizontalAlignment="Left" VerticalAlignment="Center" />
+
+
+        <Image x:Name="AchtergrondWeg" Source="/src/resources/others/beterere weg.png" Opacity="0.8" HorizontalAlignment="Left" Canvas.Top="-18" VerticalAlignment="Center" Width="1284" />
+        <Image x:Name="mooigrasveldje" Source="/src/resources/others/mooigrasveldje.png" Canvas.Top="591" Height="150" Width="1408" Canvas.Left="-64" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Rectangle x:Name="player" Width="50" Height="50" Fill="Transparent" Canvas.Left="640" Canvas.Top="585"/>
+        <Rectangle x:Name="player2" Width="50" Height="50" Fill="Transparent" Canvas.Left="640" Canvas.Top="585"/>
+
         <Label x:Name="Level" Content="Level: 1" Canvas.Left="0" Canvas.Top="-10" FontSize="40px"/>
         <Frame Name="Main" Content="" Height="720" Width="480" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="402" Canvas.ZIndex="1"/>
 
@@ -21,5 +30,5 @@
 
 
     </Canvas>
-    
+
 </Window>

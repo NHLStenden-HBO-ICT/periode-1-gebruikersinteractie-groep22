@@ -2,6 +2,7 @@ using periode_1_gebruikersinteractie_groep22;
 using System;
 
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Windows;
@@ -11,11 +12,12 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 using System.Windows.Media;
-
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using System.Windows.Threading;
 using System.Xml.Schema;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MovingObstacles
 
@@ -57,13 +59,23 @@ namespace MovingObstacles
         private int player2Score = 0;
 
         public static bool closeWindow = false;
+
+        private int player1Id;
+        private int player2Id;
+        private int TimerTime;
+        private bool directionImage;
+
+        ImageBrush p1Image = new ImageBrush();
+        ImageBrush p2Image = new ImageBrush();
         
 
-        public GameWindow(bool multiPlayer, int timerTime)
+
+        public GameWindow(bool multiPlayer, int timerTime, int player1id, int player2id)
 
         {
-
- 
+            player1Id = player1id;
+            player2Id = player2id;
+            TimerTime = timerTime;
 
             Multiplayer = multiPlayer;
 
@@ -80,6 +92,12 @@ namespace MovingObstacles
             timer.Tick += Timer_Tick;
 
             timer.Start();
+
+            p1Image.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/src/resources/heads/Lego_hoofd" + player1id + ".png"));
+            p2Image.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/src/resources/heads/Lego_hoofd" + player2id + ".png"));
+
+            player.Fill = p1Image;
+            player2.Fill = p2Image;
 
             if (multiPlayer)
             {
@@ -128,61 +146,49 @@ namespace MovingObstacles
 
             int random = level * 387;
             int r = 30;
-            
-            
 
+
+            
+            ScaleTransform flipTransform = new ScaleTransform(-1, 1);
 
             for (int i = 0; i < obstacleCount; i++)
 
             {
-
+                string carColor = "";
                 double w = 0;
                 r = Math.Abs((random % 3)) * 30 + 30;
                 if (Math.Abs(random % 15) == 0) r = 25;
 
-                byte colorR = 0;
-                byte colorG = 0;
-                byte colorB = 0;
 
                 if (r == 30) {
-                    colorR = 255;
+                    carColor = "red";
                 } else if (r == 60)
                 {
-                    colorR = 255;
-                    colorG = 255;
+                    carColor = "yellow";
                 } else if (r == 90)
                 {
-                    colorB = 255;
-                    colorG = 127;
+                    carColor = "blue";
                 } else
                 {
-                    colorG = 255;
+                    carColor = "green";
                     w = 4 + Math.Abs((random % 4));
                 }
-                Color c = Color.FromRgb(colorR, colorG, colorB);
+
+                ImageBrush autoObstakel = new ImageBrush();
+
+                autoObstakel.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/src/resources/autos/Auto_" + carColor + ".png"));
+                
 
                 Rectangle obstacle = new Rectangle
 
                 {
-
+                    
                     Width = r, // random width
                     Height = 30,
-                    Fill = new SolidColorBrush(c)
+                    Fill = autoObstakel
 
                 };
 
-                
-
-
-                // Set initial position
-
-                Canvas.SetLeft(obstacle, (1000 / obstacleCount) * Math.Abs((random % (obstacleCount)))); // Spread obstacles horizontally
-
-                Canvas.SetTop(obstacle, (400 / (obstacleCount)) * (i - back) + 100); // Spread obstacles vertically
-
-                gameCanvas.Children.Add(obstacle);
-
-                obstacles.Add(obstacle);
 
 
 
@@ -195,6 +201,22 @@ namespace MovingObstacles
                 obstacleDirections.Add(( random + i )% 2 == 0);
                 obstacleSpeeds.Add((random) % 6 / 3 + obstacleSpeed);
                 obstacleWave.Add(w);
+
+                directionImage = (random + i) % 2 == 0;
+
+                if (directionImage) obstacle.RenderTransform = flipTransform;
+
+                // Set initial position
+
+                Canvas.SetLeft(obstacle, (1000 / obstacleCount) * Math.Abs((random % (obstacleCount)))); // Spread obstacles horizontally
+
+                Canvas.SetTop(obstacle, (400 / (obstacleCount)) * (i - back) + 100); // Spread obstacles vertically
+
+                gameCanvas.Children.Add(obstacle);
+
+                obstacles.Add(obstacle);
+
+
             }
 
         }
@@ -364,8 +386,13 @@ namespace MovingObstacles
                 timer.Stop();
                 
                 level++;
+                if (!Multiplayer && player1Id < 20)
+                {
+                    player1Id++;
+                    p1Image.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/src/resources/heads/Lego_hoofd" + player1Id + ".png"));
+                }
 
-                if (level % 2 == 0 && !Multiplayer)
+                    if (level % 2 == 0 && !Multiplayer)
                 {
                     obstacleSpeed+=.5;
                     obstacleCount++;
@@ -456,7 +483,12 @@ namespace MovingObstacles
             timer.Start();
 
             // clear canvas but keep player object
-            List<UIElement> objectsToKeep = new List<UIElement>();
+            List<UIElement> objectsToKeep = new List<UIElement>(); 
+            objectsToKeep.Add(finishlijn1);
+            objectsToKeep.Add(finishlijn2);
+            objectsToKeep.Add(finishlijn3);
+            objectsToKeep.Add(AchtergrondWeg);
+            objectsToKeep.Add(mooigrasveldje);
             objectsToKeep.Add(player);
             objectsToKeep.Add(Level);
             objectsToKeep.Add(Main);
