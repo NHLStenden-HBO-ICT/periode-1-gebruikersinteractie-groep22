@@ -67,6 +67,9 @@
     <Compile Include="src\UitlegPage.xaml.cs">
       <DependentUpon>UitlegPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\WinPage.xaml.cs">
+      <DependentUpon>WinPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="src\PausePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -99,6 +102,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="src\UitlegPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\WinPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

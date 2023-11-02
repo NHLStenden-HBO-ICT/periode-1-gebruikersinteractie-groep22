@@ -1,0 +1,42 @@
+﻿<Page x:Class="periode_1_gebruikersinteractie_groep22.src.WinPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:periode_1_gebruikersinteractie_groep22.src"
+            mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="480"
+      Height="720" Width="480"
+      Title="WinPage"
+      Background="#1D1D1B"
+	  FocusVisualStyle="{x:Null}"
+	  KeyboardNavigation.DirectionalNavigation="None"
+	   >
+
+
+    <Grid>
+
+        <Image Source="/Ontwerp zonder titel (2).png" Stretch="Fill"/>
+
+        <Button Name="Nextlevel" Content="Next Level" HorizontalAlignment="Center" VerticalAlignment="Top" Height="106" Width="232"
+                Focusable="False" KeyboardNavigation.DirectionalNavigation="None" FocusVisualStyle="{x:Null}" FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
+Foreground="White" Background="#00ff0f"  BorderBrush="Black" Margin="0,358,0,0" Click="Nextlevel_Click"/>
+        <Button Name="Restart" Content="Restart" HorizontalAlignment="Center" VerticalAlignment="Top" Height="103" Width="232"  Margin="0,469,0,0"
+                Focusable="False" KeyboardNavigation.DirectionalNavigation="None" FocusVisualStyle="{x:Null}" FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
+Foreground="White" Background="#FF7200" BorderBrush="Black" Click="Restart_Click"/>
+        <Button Name="Menu" Content="Menu" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="232"  Margin="0,577,0,0"
+                Focusable="False" KeyboardNavigation.DirectionalNavigation="None" FocusVisualStyle="{x:Null}" FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
+Foreground="White" Background="Red"  BorderBrush="Black" Click="Menu_Click"/>
+        <Label KeyboardNavigation.DirectionalNavigation="None" FocusVisualStyle="{x:Null}" Content="You&#xA;Win" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Height="140" Width="200"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="50px" FontFamily="Arial Black" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Foreground="White">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.767"/>
+                    <RotateTransform Angle="0.562"/>
+                    <TranslateTransform X="-0.173" Y="-2.459"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+    </Grid>
+</Page>
