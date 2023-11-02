@@ -1,7 +1,9 @@
+using Menus;
 using periode_1_gebruikersinteractie_groep22;
 using System;
 
 using System.Collections.Generic;
+using System.IO;
 using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -64,18 +66,21 @@ namespace MovingObstacles
         private int player2Id;
         private int TimerTime;
         private bool directionImage;
+        private int counter = 0;
+        private int minutes = 0;
+        private int seconds = 60;
+        private bool TimerExist;
 
         ImageBrush p1Image = new ImageBrush();
         ImageBrush p2Image = new ImageBrush();
         
 
 
-        public GameWindow(bool multiPlayer, int timerTime, int player1id, int player2id)
+        public GameWindow(bool multiPlayer, int player1id, int player2id)
 
         {
             player1Id = player1id;
             player2Id = player2id;
-            TimerTime = timerTime;
 
             Multiplayer = multiPlayer;
 
@@ -101,7 +106,7 @@ namespace MovingObstacles
 
             if (multiPlayer)
             {
-                Level.Content = "Player 1: 0\nPlayer 2: 0";
+                Level.Content = "Player 1: 0    " + "Player 2: 0";
 
                 player2Left = Canvas.GetLeft(player2);
                 player2Top = Canvas.GetTop(player2);
@@ -114,8 +119,40 @@ namespace MovingObstacles
             }
             else player2.Visibility = Visibility.Hidden;
 
+            // Timer
+
+            if (!File.Exists("./Time.txt"))
+                File.Create("./Time.txt");
+            if (!File.Exists("./TimeOut.txt"))
+                File.Create("./TimeOut.txt");
+
+            TimerTime = Convert.ToInt32(File.ReadAllText("./Time.txt"));
+
+            if(TimerTime <= 0 )
+            {
+                Time.Content = "";
+                TimerExist = false;
+            }
+            else
+            {
+                Time.Content = "Tijd: " + TimerTime + ":" + "00";
+                TimerExist = true;
+
+                TimerTime--;
+                minutes = TimerTime;
+
+                if (TimerTime == 0)
+                    File.WriteAllText("./Time.txt", "Expired");
+                else
+                    File.WriteAllText("./Time.txt", minutes.ToString());
+                
+                
+            }
+
+            
 
             InitializeObstacles();
+
 
 
 
@@ -400,7 +437,7 @@ namespace MovingObstacles
 
                 if (!Multiplayer) Level.Content = "Level: " + level;
                 else { player1Score++;
-                    Level.Content = "Player 1: " + player1Score + "\nPlayer 2: " + player2Score;
+                    Level.Content = "Player 1: " + player1Score + "    Player 2: " + player2Score;
                 }
                     
                 
@@ -418,7 +455,7 @@ namespace MovingObstacles
                 level++;
 
                 player2Score++;
-                Level.Content = "Player 1: " + player1Score + "\nPlayer 2: " + player2Score;
+                Level.Content = "Player 1: " + player1Score + "    Player 2: " + player2Score;
 
 
 
@@ -439,6 +476,38 @@ namespace MovingObstacles
                 timer.Stop();
                 this.Close();
                 closeWindow = false;
+            }
+
+            // timer
+
+            if (TimerExist)
+            {
+                counter++;
+
+                if(counter == 50)
+                {
+                    counter = 0;
+                    seconds--;
+                    Time.Content = "Tijd: " + minutes + ":" + seconds;
+                }
+
+                if (minutes == 0 && seconds == 0)
+                {
+                    File.WriteAllText("./TimeOut.txt", "true");
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                }
+
+                if (seconds == 0)
+                {
+                    minutes--;
+                    Time.Content = "Tijd: " + minutes + ":" + seconds;
+                    File.WriteAllText("./Time.txt", minutes.ToString());
+                }
+
+                if (seconds == 0)
+                    seconds = 60;
             }
 
 
@@ -491,6 +560,7 @@ namespace MovingObstacles
             objectsToKeep.Add(mooigrasveldje);
             objectsToKeep.Add(player);
             objectsToKeep.Add(Level);
+            objectsToKeep.Add(Time);
             objectsToKeep.Add(Main);
             if (Multiplayer) objectsToKeep.Add(player2);
             gameCanvas.Children.Clear();

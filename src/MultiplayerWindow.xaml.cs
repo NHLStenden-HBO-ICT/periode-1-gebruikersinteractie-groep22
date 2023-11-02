@@ -20,12 +20,10 @@ namespace periode_1_gebruikersinteractie_groep22 {
     /// </summary>
     public partial class MultiplayerWindow : Window {
 
-        private int Timertime;
         private int player1id = 1;
         private int player2id = 2;
-        public MultiplayerWindow(int timerTime)
+        public MultiplayerWindow()
         {
-            Timertime = timerTime;
             InitializeComponent();
 
             ImageUpdate();
@@ -42,7 +40,7 @@ namespace periode_1_gebruikersinteractie_groep22 {
         {
             if(player1id != player2id)
             {
-                GameWindow gameWindow = new GameWindow(true, Timertime, player1id, player2id);
+                GameWindow gameWindow = new GameWindow(true, player1id, player2id);
                 gameWindow.Show();
                 this.Close();
             }

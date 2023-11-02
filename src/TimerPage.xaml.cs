@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace periode_1_gebruikersinteractie_groep22 {
         private string minutes = "";
         private bool pincodeCorrect = false;
 
-        public static int timerTime;
+        public static int timerTime = 0;
 
 
         public TimerPage()
@@ -43,6 +44,11 @@ namespace periode_1_gebruikersinteractie_groep22 {
             timer.Tick += Timer_Tick;
 
             timer.Start();
+
+            if (!File.Exists("./Time.txt"))
+                File.Create("./Time.txt");
+            if (!File.Exists("./TimeOut.txt"))
+                File.Create("./TimeOut.txt");
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -148,7 +154,14 @@ namespace periode_1_gebruikersinteractie_groep22 {
         private void KnopKlaar_Click(object sender, RoutedEventArgs e)
         {
             if(minutes != "")
+            {
                 timerTime = Convert.ToInt32(minutes);
+                File.WriteAllText("./Time.txt", timerTime.ToString());
+            }
+
+            if (pincodeCorrect)
+                File.WriteAllText("./TimeOut.txt", "false");
+                
 
             this.Visibility = Visibility.Hidden;
         }
