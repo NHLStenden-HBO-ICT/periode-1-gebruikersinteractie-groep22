@@ -66,7 +66,7 @@ namespace MovingObstacles
         private int TimerTime;
         private bool directionImage;
         private int counter = 0;
-        private int minutes;
+        private int minutes = 0;
         private int seconds = 60;
         private bool TimerExist;
 
@@ -105,7 +105,7 @@ namespace MovingObstacles
 
             if (multiPlayer)
             {
-                Level.Content = "Player 1: 0\nPlayer 2: 0";
+                Level.Content = "Player 1: 0    " + "Player 2: 0";
 
                 player2Left = Canvas.GetLeft(player2);
                 player2Top = Canvas.GetTop(player2);
@@ -429,7 +429,7 @@ namespace MovingObstacles
 
                 if (!Multiplayer) Level.Content = "Level: " + level;
                 else { player1Score++;
-                    Level.Content = "Player 1: " + player1Score + "\nPlayer 2: " + player2Score;
+                    Level.Content = "Player 1: " + player1Score + "    Player 2: " + player2Score;
                 }
                     
                 
@@ -447,7 +447,7 @@ namespace MovingObstacles
                 level++;
 
                 player2Score++;
-                Level.Content = "Player 1: " + player1Score + "\nPlayer 2: " + player2Score;
+                Level.Content = "Player 1: " + player1Score + "    Player 2: " + player2Score;
 
 
 

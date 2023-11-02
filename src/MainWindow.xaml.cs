@@ -27,6 +27,9 @@ namespace Menus {
 
         private void MultiPlayer_Click(object sender, RoutedEventArgs e)
         {
+            if (File.ReadAllText("./Time.txt") == "")
+                File.WriteAllText("./Time.txt", 0.ToString());
+
             MultiplayerWindow multiplayerWindow = new MultiplayerWindow();
             multiplayerWindow.Show();
             this.Close();
@@ -34,6 +37,9 @@ namespace Menus {
 
         private void SinglePlayer_Click(object sender, RoutedEventArgs e)
         {
+            if(File.ReadAllText("./Time.txt") == "")
+                File.WriteAllText("./Time.txt", 0.ToString());
+
             GameWindow gameWindow = new GameWindow(false, 1, 1);
             gameWindow.Show();
             this.Close();
