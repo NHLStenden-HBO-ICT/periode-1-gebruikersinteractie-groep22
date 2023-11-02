@@ -2,6 +2,7 @@ using periode_1_gebruikersinteractie_groep22;
 using System;
 
 using System.Collections.Generic;
+using System.IO;
 using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -64,18 +65,21 @@ namespace MovingObstacles
         private int player2Id;
         private int TimerTime;
         private bool directionImage;
+        private int counter = 0;
+        private int minutes;
+        private int seconds = 60;
+        private bool TimerExist;
 
         ImageBrush p1Image = new ImageBrush();
         ImageBrush p2Image = new ImageBrush();
         
 
 
-        public GameWindow(bool multiPlayer, int timerTime, int player1id, int player2id)
+        public GameWindow(bool multiPlayer, int player1id, int player2id)
 
         {
             player1Id = player1id;
             player2Id = player2id;
-            TimerTime = timerTime;
 
             Multiplayer = multiPlayer;
 
@@ -114,8 +118,33 @@ namespace MovingObstacles
             }
             else player2.Visibility = Visibility.Hidden;
 
+            // Timer
+
+            if (!File.Exists("./Time.txt"))
+                File.Create("./Time.txt");
+
+            TimerTime = Convert.ToInt32(File.ReadAllText("./Time.txt"));
+
+            if(TimerTime == 0)
+            {
+                Time.Content = "";
+                TimerExist = false;
+            }
+
+            else
+            {
+                Time.Content = "Tijd: " + TimerTime + ":" + "00";
+                TimerExist = true;
+            }
+
+            TimerTime--;
+            minutes = TimerTime;
+            File.WriteAllText("./Time.txt", minutes.ToString());
+
+
 
             InitializeObstacles();
+
 
 
 
@@ -441,6 +470,30 @@ namespace MovingObstacles
                 closeWindow = false;
             }
 
+            // timer
+
+            if (TimerExist)
+            {
+                counter++;
+
+                if(counter == 50)
+                {
+                    counter = 0;
+                    seconds--;
+                    Time.Content = "Tijd: " + minutes + ":" + seconds;
+                }
+
+                if(seconds == 0)
+                {
+                    minutes--;
+                    Time.Content = "Tijd: " + minutes + ":" + seconds;
+                    File.WriteAllText("./Time.txt", minutes.ToString());
+                }
+
+                if (seconds == 0)
+                    seconds = 60;
+            }
+
 
                 // Update positie
 
@@ -491,6 +544,7 @@ namespace MovingObstacles
             objectsToKeep.Add(mooigrasveldje);
             objectsToKeep.Add(player);
             objectsToKeep.Add(Level);
+            objectsToKeep.Add(Time);
             objectsToKeep.Add(Main);
             if (Multiplayer) objectsToKeep.Add(player2);
             gameCanvas.Children.Clear();

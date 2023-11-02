@@ -2,6 +2,7 @@ using MovingObstacles;
 using periode_1_gebruikersinteractie_groep22;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,6 +13,10 @@ namespace Menus {
         public MainWindow()
         {
             InitializeComponent();
+
+
+            if (!File.Exists("./Time.txt"))
+                File.Create("./Time.txt");
         }
 
 
@@ -22,14 +27,14 @@ namespace Menus {
 
         private void MultiPlayer_Click(object sender, RoutedEventArgs e)
         {
-            MultiplayerWindow multiplayerWindow = new MultiplayerWindow(TimerPage.timerTime);
+            MultiplayerWindow multiplayerWindow = new MultiplayerWindow();
             multiplayerWindow.Show();
             this.Close();
         }
 
         private void SinglePlayer_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow gameWindow = new GameWindow(false, TimerPage.timerTime, 1, 1);
+            GameWindow gameWindow = new GameWindow(false, 1, 1);
             gameWindow.Show();
             this.Close();
         }
