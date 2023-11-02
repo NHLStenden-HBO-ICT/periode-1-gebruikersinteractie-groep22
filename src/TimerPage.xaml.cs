@@ -47,6 +47,8 @@ namespace periode_1_gebruikersinteractie_groep22 {
 
             if (!File.Exists("./Time.txt"))
                 File.Create("./Time.txt");
+            if (!File.Exists("./TimeOut.txt"))
+                File.Create("./TimeOut.txt");
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -156,6 +158,10 @@ namespace periode_1_gebruikersinteractie_groep22 {
                 timerTime = Convert.ToInt32(minutes);
                 File.WriteAllText("./Time.txt", timerTime.ToString());
             }
+
+            if (pincodeCorrect)
+                File.WriteAllText("./TimeOut.txt", "false");
+                
 
             this.Visibility = Visibility.Hidden;
         }

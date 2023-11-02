@@ -1,3 +1,4 @@
+using Menus;
 using periode_1_gebruikersinteractie_groep22;
 using System;
 
@@ -122,26 +123,33 @@ namespace MovingObstacles
 
             if (!File.Exists("./Time.txt"))
                 File.Create("./Time.txt");
+            if (!File.Exists("./TimeOut.txt"))
+                File.Create("./TimeOut.txt");
 
             TimerTime = Convert.ToInt32(File.ReadAllText("./Time.txt"));
 
-            if(TimerTime == 0)
+            if(TimerTime <= 0 )
             {
                 Time.Content = "";
                 TimerExist = false;
             }
-
             else
             {
                 Time.Content = "Tijd: " + TimerTime + ":" + "00";
                 TimerExist = true;
+
+                TimerTime--;
+                minutes = TimerTime;
+
+                if (TimerTime == 0)
+                    File.WriteAllText("./Time.txt", "Expired");
+                else
+                    File.WriteAllText("./Time.txt", minutes.ToString());
+                
+                
             }
 
-            TimerTime--;
-            minutes = TimerTime;
-            File.WriteAllText("./Time.txt", minutes.ToString());
-
-
+            
 
             InitializeObstacles();
 
@@ -483,7 +491,15 @@ namespace MovingObstacles
                     Time.Content = "Tijd: " + minutes + ":" + seconds;
                 }
 
-                if(seconds == 0)
+                if (minutes == 0 && seconds == 0)
+                {
+                    File.WriteAllText("./TimeOut.txt", "true");
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                }
+
+                if (seconds == 0)
                 {
                     minutes--;
                     Time.Content = "Tijd: " + minutes + ":" + seconds;
