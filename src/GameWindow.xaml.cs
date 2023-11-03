@@ -1,5 +1,6 @@
 using Menus;
 using periode_1_gebruikersinteractie_groep22;
+using periode_1_gebruikersinteractie_groep22.src;
 using System;
 
 using System.Collections.Generic;
@@ -460,6 +461,17 @@ namespace MovingObstacles
 
 
                 ResetGame();
+            }
+
+            if (player1Score == 10)
+            {
+                Main.Content = new WinPage(1);
+                timer.Stop();
+            }
+            else if (player2Score == 10)
+            {
+                Main.Content = new WinPage(2);
+                timer.Stop();
             }
 
 

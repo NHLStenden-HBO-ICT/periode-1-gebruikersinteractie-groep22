@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Menus;
+using MovingObstacles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,24 +20,33 @@ namespace periode_1_gebruikersinteractie_groep22.src {
     /// Interaction logic for WinPage.xaml
     /// </summary>
     public partial class WinPage : Page {
-        public WinPage()
+        public WinPage(int playerWin)
         {
             InitializeComponent();
-        }
 
-        private void Nextlevel_Click(object sender, RoutedEventArgs e)
-        {
-
+            PlayerWin.Content = "Player" + playerWin;
         }
 
         private void Restart_Click(object sender, RoutedEventArgs e)
         {
-
+            MultiplayerWindow multiplayerWindow = new MultiplayerWindow();
+            multiplayerWindow.Show();
+            GameWindow.timer.Start();
+            GameWindow.closeWindow = true;
         }
 
         private void Menu_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            GameWindow.timer.Start();
+            GameWindow.closeWindow = true;
+        }
 
+        private void Quit_Click(object sender, RoutedEventArgs e)
+        {
+            GameWindow.timer.Start();
+            GameWindow.closeWindow = true;
         }
     }
 }

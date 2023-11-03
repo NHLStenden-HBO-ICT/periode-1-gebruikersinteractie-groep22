@@ -172,5 +172,8 @@
     <Resource Include="src\resources\others\mooigrasveldje.png" />
     <Resource Include="src\resources\others\zieke finishlijn.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\resources\Ontwerp_zonder_titel_2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

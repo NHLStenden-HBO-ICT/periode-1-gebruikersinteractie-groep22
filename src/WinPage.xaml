@@ -16,18 +16,28 @@
 
     <Grid>
 
-        <Image Source="/Ontwerp zonder titel (2).png" Stretch="Fill"/>
+        <Image Source="/src/resources/Ontwerp_zonder_titel_2.png" Stretch="Fill"/>
 
-        <Button Name="Nextlevel" Content="Next Level" HorizontalAlignment="Center" VerticalAlignment="Top" Height="106" Width="232"
+        <Button Name="Restart" Content="Restart" HorizontalAlignment="Center" VerticalAlignment="Top" Height="106" Width="232"
                 Focusable="False" KeyboardNavigation.DirectionalNavigation="None" FocusVisualStyle="{x:Null}" FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
-Foreground="White" Background="#00ff0f"  BorderBrush="Black" Margin="0,358,0,0" Click="Nextlevel_Click"/>
-        <Button Name="Restart" Content="Restart" HorizontalAlignment="Center" VerticalAlignment="Top" Height="103" Width="232"  Margin="0,469,0,0"
+Foreground="White" Background="#00ff0f"  BorderBrush="Black" Margin="0,358,0,0" Click="Restart_Click"/>
+        <Button Name="Menu" Content="Menu" HorizontalAlignment="Center" VerticalAlignment="Top" Height="103" Width="232"  Margin="0,469,0,0"
                 Focusable="False" KeyboardNavigation.DirectionalNavigation="None" FocusVisualStyle="{x:Null}" FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
-Foreground="White" Background="#FF7200" BorderBrush="Black" Click="Restart_Click"/>
-        <Button Name="Menu" Content="Menu" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="232"  Margin="0,577,0,0"
+Foreground="White" Background="#FF7200" BorderBrush="Black" Click="Menu_Click"/>
+        <Button Name="Quit" Content="Quit" HorizontalAlignment="Center" VerticalAlignment="Top" Height="98" Width="232"  Margin="0,577,0,0"
                 Focusable="False" KeyboardNavigation.DirectionalNavigation="None" FocusVisualStyle="{x:Null}" FontSize="38px" FontFamily="Baloo Bhai 2" FontWeight="Bold"
-Foreground="White" Background="Red"  BorderBrush="Black" Click="Menu_Click"/>
-        <Label KeyboardNavigation.DirectionalNavigation="None" FocusVisualStyle="{x:Null}" Content="You&#xA;Win" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Height="140" Width="200"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="50px" FontFamily="Arial Black" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Foreground="White">
+Foreground="White" Background="Red"  BorderBrush="Black" Click="Quit_Click"/>
+        <Label Name="PlayerWin" KeyboardNavigation.DirectionalNavigation="None" FocusVisualStyle="{x:Null}" Content="Player" HorizontalAlignment="Center" Margin="0,87,0,0" VerticalAlignment="Top" Height="140" Width="200"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="45px" FontFamily="Arial Black" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Foreground="White">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.767"/>
+                    <RotateTransform Angle="0.562"/>
+                    <TranslateTransform X="-0.173" Y="-2.459"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label KeyboardNavigation.DirectionalNavigation="None" FocusVisualStyle="{x:Null}" Content="Wins" HorizontalAlignment="Center" Margin="0,158,0,0" VerticalAlignment="Top" Height="140" Width="200"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="50px" FontFamily="Arial Black" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Foreground="White">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
